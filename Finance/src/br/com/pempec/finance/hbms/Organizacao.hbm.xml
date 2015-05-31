@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="OrganizacaoModel" table="ORGANIZACAO">
+        <id column="ID_ORGANIZACAO" name="id"/>
+        <property column="RAZAO_SOCIAL" name="razaoSocial"/>
+        <property name="sigla" unique="true"/>
+        <property column="INSCRICAO_ESTADUAL" name="inscricaoEstadual"/>
+        <property column="INSCRICAO_MUNICIPAL" name="inscricaoMunicipal"/>
+        <property name="cnpj"/>
+        <property name="fantasia"/>
+        <property name="logradouro"/>
+        <property name="numero"/>
+        <property name="complemento"/>
+        <property name="cep"/>
+
+        <property column="IPSERVERBD" name="ipServidor"/>
+        <property column="NAMESERVERBD" name="nomeServidor"/>
+        <property column="SISTEMA_CONTABIL" name="sistemaContabil"/>
+        <property name="serial_hd"/>
+        <property name="serial_cliente"/>
+        <property name="licenca"/>
+        <property name="socket_web"/>
+        <property name="codigo_web"/>
+        <property name="codinome"/>
+        <property name="host_name"/>
+        <property name="host_ip"/>
+        <property name="versao"/>
+        <property column="DATA_ATUALIZACAO" name="dataAtualizacao"/>
+        <many-to-one cascade="none" class="EstadoModel" column="ID_ESTADO" lazy="no-proxy" name="estado" unique="true"/>
+        <many-to-one cascade="none" class="BairroModel" column="ID_BAIRRO" lazy="no-proxy" name="bairro" unique="true"/>
+        <many-to-one cascade="none" class="CidadeModel" column="ID_CIDADE" lazy="no-proxy" name="cidade" unique="true"/>
+    </class>
+</hibernate-mapping>

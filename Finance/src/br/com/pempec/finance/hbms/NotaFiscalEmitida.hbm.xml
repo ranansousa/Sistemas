@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="NotaFiscalEmitidaModel" table="NOTA_FISCAL_EMITIDA">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_NOTA_FISCAL_EMITIDA" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="DATA_REGISTRO" name="dataRegistro"/>
+        <property column="DATA_EMISSAO" name="dataEmissao"/>
+        <property column="DATA_PROTOCOLO" name="dataProtocolo"/>
+        <property column="DATA_RETENCAO_ISS" name="dataRetencao"/>
+        <property column="VALOR" name="valor"/>
+        <property column="VALOR_ISS" name="valorIss"/>
+        <property column="BASE_CALCULO_ISS" name="baseCalculo"/>
+        <property column="NUMERO" name="numero"/>
+        <property name="descricao"/>
+        <property name="observacao"/>
+        <property column="SUB_SERIE" name="subSerie"/>
+        <property name="serie"/>
+        <property column="ALIQUOTA_ISS" name="aliquota"/>
+        <many-to-one cascade="none" class="FuncionarioModel" insert="true" lazy="no-proxy" name="responsavel" update="true">
+            <column name="ID_RESPONSAVEL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoNotaFiscalModel" insert="true" lazy="no-proxy" name="tipoDocumento" update="true">
+            <column name="ID_TIPO_NOTA_FISCAL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="UsuarioModel" column="ID_USUARIO" insert="true" lazy="no-proxy" name="usuario" update="true"/>
+    </class>
+</hibernate-mapping>

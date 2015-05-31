@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="UsuarioActionModel" table="USUARIO_ACTION">
+        <composite-id class="UsuarioActionIDModel" name="usuarioActionIDModel">
+            <key-property column="ID_USUARIO_ACTION" name="id"/>
+            <key-many-to-one class="UsuarioModel" column="ID_USUARIO" lazy="false" name="usuario"/>
+            <key-many-to-one class="ActionModel" column="ID_ACTION" lazy="false" name="action"/>
+            <key-many-to-one class="TelaModel" column="ID_TELA" lazy="false" name="tela"/>
+        </composite-id>
+    </class>
+    <query name="br.com.pempec.finance.models.UsuarioActionModel.deletarUsuarioActionPorIdUsuario">
+        <query-param name="id_usuario" type="long"/>
+        delete br.com.pempec.finance.models.UsuarioActionModel where id_usuario = :id_usuario
+    </query>
+</hibernate-mapping>

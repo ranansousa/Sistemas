@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="ContaBancariaModel" table="CONTA_BANCARIA">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_CONTA_BANCARIA" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="AGENCIA" name="agencia"/>
+        <property column="CONTA" name="conta"/>
+        <property column="OBSERVACAO" name="observacao"/>
+        <property column="TITULAR" name="titular"/>
+        <property column="DEPENDENTE" name="dependente"/>
+        <property column="LIMITE_CREDITO" name="limiteCredito"/>
+        <property column="SALDO_INICIAL" name="saldoInicial"/>
+        <many-to-one cascade="none" class="ContaContabilModel" insert="true" lazy="no-proxy" name="contaContabil" update="true">
+            <column name="ID_CONTA_CONTABIL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="BancoModel" column="ID_BANCO" lazy="no-proxy" name="banco" unique="true"/>
+    </class>
+</hibernate-mapping>

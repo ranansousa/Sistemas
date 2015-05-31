@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="CartaoCreditoModel" table="CARTAO_CREDITO">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_CARTAO_CREDITO" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="CARTAO" name="cartao"/>
+        <property column="TITULAR" name="titular"/>
+        <property column="NUMERO" name="numero"/>
+        <property column="CODIGO_SEGURANCA" name="codigoSeguranca"/>
+        <property column="LIMITE" name="limite"/>
+        <property column="BANDEIRA" name="bandeira"/>
+        <property column="DIA_VENCIMENTO" name="diaVencimento"/>
+        <property column="DIA_COMPRA" name="diaCompra"/>
+        <property column="DATA_VALIDADE" name="validade"/>
+    </class>
+</hibernate-mapping>

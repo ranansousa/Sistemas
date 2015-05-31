@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="GrupoModel" table="GRUPO">
+        <id column="ID_GRUPO" name="id"/>
+        <property name="descricao"/>
+    </class>
+</hibernate-mapping>

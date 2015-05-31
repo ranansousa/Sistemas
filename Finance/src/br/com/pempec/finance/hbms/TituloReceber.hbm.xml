@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TituloReceberModel" table="TITULO_RECEBER">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TITULO_RECEBER" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="NUMERO_DOCUMENTO" name="numeroDocumento"/>
+        <property column="REGISTRO_PROVISAO" name="registroProvisao"/>
+        <property name="descricao"/>
+        <property column="DATA_REGISTRO" name="dataRegistro"/>
+        <property column="DATA_VENCIMENTO" name="dataVencimento"/>
+        <property column="DATA_PAGAMENTO" name="dataPagamento"/>
+        <property column="DATA_EMISSAO" name="dataEmissao"/>
+        <property column="DATA_PROTOCOLO" name="dataProtocolo"/>
+        <property column="PREVISAO_CARTORIO" name="previsaoCartorio"/>
+        <property column="DATA_ULTIMA_ATUALIZACAO" name="dataUltimaAtualizacao"/>
+        <property column="VALOR_NOMINAL" name="valorNominal"/>
+        <property column="VALOR_ANTECIPADO" name="valorAntecipado"/>
+        <property name="moeda"/>
+        <property name="carteira"/>
+        <property column="CODIGO_BARRAS" name="codigoBarras"/>
+        <property name="contrato"/>
+        <property name="parcela"/>
+        <property name="observacao"/>
+        <property column="IS_PROVISAO" name="provisao"/>
+        <many-to-one cascade="none" class="ContaContabilModel" insert="true" lazy="no-proxy" name="contaContabilCredito" update="true">
+            <column name="ID_CONTA_CONTABIL_CREDITO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="ContaContabilModel" insert="true" lazy="no-proxy" name="contaContabilDebito" update="true">
+            <column name="ID_CONTA_CONTABIL_DEBITO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="LoteContabilModel" insert="true" lazy="no-proxy" name="loteContabil" update="true">
+            <column name="ID_LOTE_CONTABIL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoCobrancaModel" insert="true" lazy="no-proxy" name="tipoCobranca" update="true">
+            <column name="ID_TIPO_COBRANCA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="HistoricoModel" insert="true" lazy="no-proxy" name="historico" update="true">
+            <column name="ID_HISTORICO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="FuncionarioModel" insert="true" lazy="no-proxy" name="responsavel" update="true">
+            <column name="ID_RESPONSAVEL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="LocalPagamentoModel" insert="true" lazy="no-proxy" name="localPagamento" update="true">
+            <column name="ID_LOCAL_PAGAMENTO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoStatusModel" insert="true" lazy="no-proxy" name="status" update="true">
+            <column name="ID_TIPO_STATUS"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="CentroCustoModel" insert="true" lazy="no-proxy" name="centroCusto" update="true">
+            <column name="ID_CENTRO_CUSTO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="UsuarioModel" column="ID_USUARIO" insert="true" lazy="no-proxy" name="usuario" update="true"/>
+        <many-to-one cascade="none" class="SacadoModel" insert="true" lazy="no-proxy" name="sacado" update="true">
+            <column name="ID_SACADO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TituloReceberModel" insert="true" lazy="no-proxy" name="tituloAnterior" update="true">
+            <column name="ID_TITULO_GERADOR"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="NotaFiscalEmitidaModel" insert="true" lazy="no-proxy" name="notaFiscal" update="true">
+            <column name="ID_NOTA_FISCAL_EMITIDA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <set cascade="none" inverse="true" lazy="true" name="collCentroCustosRateio">
+            <key>
+                <column name="ID_TITULO_RECEBER"/>
+                <column name="ID_ORGANIZACAO"/>
+            </key>
+            <one-to-many class="TituloReceberRateioCCModel"/>
+        </set>
+        <set cascade="none" inverse="true" lazy="true" name="collHistoricosRateio">
+            <key>
+                <column name="ID_TITULO_RECEBER"/>
+                <column name="ID_ORGANIZACAO"/>
+            </key>
+            <one-to-many class="TituloReceberRateioHistoricoModel"/>
+        </set>
+    </class>
+</hibernate-mapping>

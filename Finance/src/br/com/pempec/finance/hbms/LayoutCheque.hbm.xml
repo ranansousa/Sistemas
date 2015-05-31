@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="LayoutChequeModel" table="LAYOUT_CHEQUE">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_LAYOUT_CHEQUE" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="LINVALOR" name="valorLinha"/>
+        <property column="COLVALOR" name="valorColuna"/>
+        <property column="LINEXTENSO1" name="extensoLinha"/>
+        <property column="COLEXTENSO1" name="extensoColuna"/>
+        <property column="LINEXTENSO2" name="extensoCompLinha"/>
+        <property column="COLEXTENSO2" name="extensoCompColuna"/>
+        <property column="LINPORTADOR" name="portadorLinha"/>
+        <property column="COLPORTADOR" name="portadorColuna"/>
+        <property column="LINCIDADE" name="cidadeLinha"/>
+        <property column="COLCIDADE" name="cidadeColuna"/>
+        <property column="LINDIA" name="diaLinha"/>
+        <property column="COLDIA" name="diaColuna"/>
+        <property column="LINMES" name="mesLinha"/>
+        <property column="COLMES" name="mesColuna"/>
+        <property column="LINANO" name="anoLinha"/>
+        <property column="COLANO" name="anoColuna"/>
+        <many-to-one cascade="none" class="ContaBancariaModel" insert="true" lazy="no-proxy" name="conta" update="true">
+            <column name="ID_CONTA_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

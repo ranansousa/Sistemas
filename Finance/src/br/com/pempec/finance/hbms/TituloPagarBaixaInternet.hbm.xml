@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TituloPagarBaixaInternetModel" table="TITULO_PAGAR_BAIXA_INTERNET">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TITULO_PAGAR_BAIXA_INTERNET" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="VALOR" name="valor"/>
+        <property column="DATA_OPERACAO" name="dataOperacao"/>
+        <property name="detalhamento"/>
+        <property column="CPFCNPJ_CORRENTISTA" name="cpfCpnjCorrentista"/>
+        <property column="NOME_CORRENTISTA" name="nomeCorrentista"/>
+        <property column="AGENCIA_DESTINO" name="agenciaDestino"/>
+        <property column="CONTA_DESTINO" name="contaDestino"/>
+        <property column="PERSONALIDADE" name="personalidadeCorrentista"/>
+        <many-to-one cascade="none" class="TituloPagarBaixaModel" insert="true" lazy="no-proxy" name="tituloPagarBaixa" update="true">
+            <column name="ID_TITULO_PAGAR_BAIXA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="BancoModel" column="ID_BANCO_DESTINO" lazy="false" name="bancoDestino" unique="true"/>
+        <many-to-one cascade="none" class="TipoOperacaoBancariaModel" insert="true" lazy="false" name="tipoOperacaoBancaria" update="true">
+            <column name="ID_TIPO_OPERACAO_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="ContaBancariaModel" insert="true" lazy="false" name="contaBancaria" update="true">
+            <column name="ID_CONTA_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

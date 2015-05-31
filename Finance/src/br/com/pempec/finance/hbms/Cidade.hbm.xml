@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="CidadeModel" table="CIDADE">
+        <id column="ID_CIDADE" name="id"/>
+        <property name="descricao" column="CIDADE"/>
+        <many-to-one cascade="none" class="EstadoModel" column="ID_ESTADO" lazy="no-proxy" name="estado" unique="true"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="GrupoActionModel" table="GRUPO_ACTION">
+        <composite-id class="GrupoActionIDModel" name="grupoActionIDModel">
+            <key-property column="ID_GRUPO_ACTION" name="id"/>
+            <key-many-to-one class="GrupoModel" column="ID_GRUPO" lazy="false" name="grupo"/>
+            <key-many-to-one class="ActionModel" column="ID_ACTION" lazy="false" name="action"/>
+            <key-many-to-one class="TelaModel" column="ID_TELA" lazy="false" name="tela"/>
+        </composite-id>
+    </class>
+    <query name="br.com.pempec.finance.models.GrupoActionModel.deletarGrupoActionPorIdGrupo">
+        <query-param name="id_grupo" type="long"/>
+        delete br.com.pempec.finance.models.GrupoActionModel where id_grupo = :id_grupo
+    </query>
+</hibernate-mapping>

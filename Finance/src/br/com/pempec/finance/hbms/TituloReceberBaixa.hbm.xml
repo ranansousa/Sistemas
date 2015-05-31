@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TituloReceberBaixaModel" table="TITULO_RECEBER_BAIXA">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TITULO_RECEBER_BAIXA" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="TIPO_BAIXA" name="tipoBaixa"/>
+        <property column="DATA_REGISTRO" name="dataRegistro"/>
+        <property column="VALOR_PAGO" name="valorPago"/>
+        <many-to-one cascade="none" class="LoteContabilModel" insert="true" lazy="no-proxy" name="loteContabil" update="true">
+            <column name="ID_LOTE_CONTABIL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TituloReceberModel" insert="true" lazy="no-proxy" name="titulo" update="true">
+            <column name="ID_TITULO_RECEBER"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="CentroCustoModel" insert="true" lazy="no-proxy" name="centroCusto" update="true">
+            <column name="ID_CENTRO_CUSTO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="UsuarioModel" column="ID_USUARIO" insert="true" lazy="no-proxy" name="usuario" update="true"/>
+        <many-to-one cascade="none" class="FuncionarioModel" insert="true" lazy="false" name="responsavel" update="true">
+            <column name="ID_RESPONSAVEL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <set cascade="none" inverse="true" lazy="true" name="formasPagamento">
+            <key>
+                <column name="ID_TITULO_RECEBER_BAIXA"/>
+                <column name="ID_ORGANIZACAO"/>
+            </key>
+            <one-to-many class="TituloReceberBaixaFormaPagamentoModel"/>
+        </set>
+        <set cascade="none" inverse="true" lazy="true" name="deducoes">
+            <key>
+                <column name="ID_TITULO_RECEBER_BAIXA"/>
+                <column name="ID_ORGANIZACAO"/>
+            </key>
+            <one-to-many class="TituloReceberBaixaDeducaoModel"/>
+        </set>
+        <set cascade="none" inverse="true" lazy="true" name="acrescimos">
+            <key>
+                <column name="ID_TITULO_RECEBER_BAIXA"/>
+                <column name="ID_ORGANIZACAO"/>
+            </key>
+            <one-to-many class="TituloReceberBaixaAcrescimoModel"/>
+        </set>
+        <set cascade="none" inverse="true" lazy="true" name="tituloReceberBaixaCheque">
+            <key>
+                <column name="ID_TITULO_RECEBER_BAIXA"/>
+                <column name="ID_ORGANIZACAO"/>
+            </key>
+            <one-to-many class="TituloReceberBaixaChequeModel"/>
+        </set>
+        <set cascade="none" inverse="true" lazy="true" name="tituloReceberBaixaInternet">
+            <key>
+                <column name="ID_TITULO_RECEBER_BAIXA"/>
+                <column name="ID_ORGANIZACAO"/>
+            </key>
+            <one-to-many class="TituloReceberBaixaInternetModel"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TituloReceberBaixaChequeModel" table="TITULO_RECEBER_BAIXA_CHEQUE">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TITULO_RECEBER_BAIXA_CHEQUE" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="DATA_PROTOCOLO" name="dataProtocolo"/>
+        <property column="VALOR" name="valor"/>
+        <property column="NUMERO_CHEQUE" name="numeroCheque"/>
+        <property name="conta"/>
+        <property name="agencia"/>
+        <property name="titular"/>
+        <property name="personalidade"/>
+        <property name="cpfCnpj"/>
+        <property column="DATA_DEPOSITO" name="dataDeposito"/>
+        <many-to-one cascade="none" class="LoteDepositoModel" insert="true" lazy="no-proxy" name="loteDeposito" update="true">
+            <column name="ID_LOTE_DEPOSITO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TituloReceberBaixaModel" insert="true" lazy="no-proxy" name="tituloReceberBaixa" update="true">
+            <column name="ID_TITULO_RECEBER_BAIXA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="BancoModel" column="ID_BANCO" lazy="no-proxy" name="banco" unique="true"/>
+    </class>
+</hibernate-mapping>

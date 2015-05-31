@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="LotePagamentoTituloModel" table="LOTE_PAGAMENTO">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_LOTE_PAGAMENTO" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="VALOR" name="valor"/>
+        <property name="lote"/>
+        <property name="status"/>
+        <property column="DATA_REGISTRO" name="dataRegistro"/>
+        <property column="DATA_PAGAMENTO" name="dataPagamento"/>
+        <property column="QTD_TIT_PAG" name="qtdTituloPagar"/>
+        <many-to-one cascade="none" class="ContaBancariaChequeModel" insert="true" lazy="no-proxy" name="cheque" update="true">
+            <column name="ID_CONTA_BANCARIA_CHEQUE"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="ContaBancariaModel" insert="true" lazy="no-proxy" name="contaBancariaModel" update="true">
+            <column name="ID_CONTA_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="FuncionarioModel" insert="true" lazy="no-proxy" name="responsavel" update="true">
+            <column name="ID_FUNCIONARIO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoOperacaoBancariaModel" insert="true" lazy="no-proxy" name="tipoOperacaoBancariaModel" update="true">
+            <column name="ID_TIPO_OPERACAO_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="FormaPagamentoModel" insert="true" lazy="no-proxy" name="formaPagamentoModel" update="true">
+            <column name="ID_FORMA_PAGAMENTO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="UsuarioModel" column="ID_USUARIO" insert="true" lazy="no-proxy" name="usuario" update="true"/>
+    </class>
+</hibernate-mapping>

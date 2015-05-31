@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="ContaBancariaChequeModel" table="CONTA_BANCARIA_CHEQUE">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_CONTA_BANCARIA_CHEQUE" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="NUMERO_CHEQUE" name="numeroCheque"/>
+        <property column="DATA_REGISTRO" name="dataRegistro"/>
+        <property column="DATA_EMISSAO" name="dataEmissao"/>
+        <property column="DATA_COMPENSACAO" name="dataCompensado"/>
+        <property column="DATA_ESTORNO" name="dataEstornado"/>
+        <property column="DATA_PREVISAO_COMPENSACAO" name="dataPrevisaoCompensacao"/>
+        <property column="VALOR" name="valor"/>
+        <property column="OBSERVACAO" name="observacao"/>
+        <property column="PORTADOR" name="portador"/>
+        <property column="QTD_IMPRESSAO" name="qtdImpressao"/>
+        <many-to-one cascade="none" class="ContaBancariaModel" insert="true" lazy="no-proxy" name="contaBancaria" update="true">
+            <column name="ID_CONTA_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="FuncionarioModel" insert="true" lazy="no-proxy" name="responsavel" update="true">
+            <column name="ID_FUNCIONARIO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoStatusModel" insert="true" lazy="no-proxy" name="status" update="true">
+            <column name="ID_TIPO_STATUS"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="UsuarioModel" column="ID_USUARIO" insert="true" lazy="no-proxy" name="usuario" update="true"/>
+    </class>
+</hibernate-mapping>

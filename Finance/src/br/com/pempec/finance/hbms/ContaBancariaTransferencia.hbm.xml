@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="ContaBancariaTransferenciaModel" table="CONTA_BANCARIA_TRANSFERENCIA">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_CONTA_BANCARIA_TRANSFERENCIA" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property name="identificacao" unique="true"/>
+        <property column="DATA_REGISTRO" name="dataRegistro"/>
+        <property column="DATA_MOVIMENTO" name="dataMovimento"/>
+        <property name="valor"/>
+        <property name="observacao"/>
+        <many-to-one cascade="none" class="LoteContabilModel" insert="true" lazy="no-proxy" name="loteContabil" update="true">
+            <column name="ID_LOTE_CONTABIL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="ContaBancariaCreditoModel" insert="true" lazy="no-proxy" name="contaBancariaCreditoModel" update="true">
+            <column name="ID_CONTA_BANCARIA_CREDITO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="ContaBancariaDebitoModel" insert="true" lazy="no-proxy" name="contaBancariaDebitoModel" update="true">
+            <column name="ID_CONTA_BANCARIA_DEBITO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="FuncionarioModel" insert="true" lazy="no-proxy" name="responsavel" update="true">
+            <column name="ID_RESPONSAVEL"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoOperacaoBancariaModel" insert="true" lazy="no-proxy" name="tipoOperacaoBancariaModel" update="true">
+            <column name="ID_TIPO_OPERACAO_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="UsuarioModel" column="ID_USUARIO" insert="true" lazy="no-proxy" name="usuarioModel" update="true"/>
+    </class>
+</hibernate-mapping>

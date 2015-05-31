@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="ContaContabilModel" table="CONTA_CONTABIL">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_CONTA_CONTABIL" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property name="descricao"/>
+        <property name="conta"/>
+        <property column="DGVER" name="digitoConta"/>
+        <property column="CODREDUZ" name="contaReduzida"/>
+        <property column="DGREDUZ" name="digitoContaReduzida"/>
+        <property column="INSCMF" name="inscricaoCMF"/>
+        <property name="tipo"/>
+        <property name="grau"/>
+        <property column="ORDEM_DIPJ" name="ordemDIPJ"/>
+        <property name="relacionamento"/>
+        <property name="natureza"/>
+    </class>
+</hibernate-mapping>

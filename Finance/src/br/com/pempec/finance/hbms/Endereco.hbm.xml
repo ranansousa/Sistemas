@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="EnderecoModel" table="ENDERECO">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_ENDERECO" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property name="logradouro"/>
+        <property name="numero"/>
+        <property name="complemento"/>
+        <property name="cep" column="CEP"/>
+        <many-to-one cascade="none" class="EstadoModel" column="ID_ESTADO" lazy="no-proxy" name="estado" unique="true"/>
+        <many-to-one cascade="none" class="BairroModel" column="ID_BAIRRO" lazy="no-proxy" name="bairro" unique="true"/>
+        <many-to-one cascade="none" class="CidadeModel" column="ID_CIDADE" lazy="no-proxy" name="cidade" unique="true"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="ServidorEmailModel" table="SERVIDOR_EMAIL">
+        <id column="ID_SERVIDOR_EMAIL" name="id"/>
+        <property name="host"/>
+        <property name="remetente"/>
+        <property column="REQUER_AUTENTICACAO" name="requerAutenticacao"/>
+        <property name="login"/>
+        <property name="senha"/>
+    </class>
+</hibernate-mapping>

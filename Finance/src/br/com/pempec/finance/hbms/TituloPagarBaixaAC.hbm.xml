@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TituloPagarBaixaAcrescimoModel" table="TITULO_PAGAR_BAIXA_AC">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TITULO_PAGAR_BAIXA_AC" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="VALOR" name="valor"/>
+        <many-to-one cascade="none" class="TituloPagarBaixaModel" insert="true" lazy="no-proxy" name="tituloPagarBaixaModel" update="true">
+            <column name="ID_TITULO_PAGAR_BAIXA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoAcrescimoModel" insert="true" lazy="false" name="tipoAcrescimo" update="true">
+            <column name="ID_TIPO_ACRESCIMO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

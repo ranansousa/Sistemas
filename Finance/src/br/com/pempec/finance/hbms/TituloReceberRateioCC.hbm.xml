@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TituloReceberRateioCCModel" table="TITULO_RECEBER_RATEIO_CC">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TITULO_RECEBER_RATEIO_CC" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <many-to-one cascade="none" class="CentroCustoModel" insert="true" lazy="false" name="centroCustoModel" update="true">
+            <column name="ID_CENTRO_CUSTO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TituloReceberModel" insert="true" lazy="no-proxy" name="tituloReceberModel" update="true">
+            <column name="ID_TITULO_RECEBER"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <property name="valor"/>
+    </class>
+    <query name="br.com.pempec.finance.models.TituloReceberRateioCCModel.deletarCCRateioPorIdTituloReceber">
+        <query-param name="id_titulo_receber" type="string"/>
+        delete br.com.pempec.finance.models.TituloReceberRateioCCModel where id_titulo_receber = :id_titulo_receber
+    </query>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TituloPagarBaixaChequeModel" table="TITULO_PAGAR_BAIXA_CHEQUE">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TITULO_PAGAR_BAIXA_CHEQUE" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property column="VALOR" name="valor"/>
+        <property name="observacao"/>
+        <many-to-one cascade="none" class="TituloPagarBaixaModel" insert="true" lazy="no-proxy" name="tituloPagarBaixa" update="true">
+            <column name="ID_TITULO_PAGAR_BAIXA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="TipoOperacaoBancariaModel" insert="true" lazy="no-proxy" name="tipoOperacaoBancaria" update="true">
+            <column name="ID_TIPO_OPERACAO_BANCARIA"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+        <many-to-one cascade="none" class="ContaBancariaChequeModel" insert="true" lazy="false" name="contaBancariaCheque" update="true">
+            <column name="ID_CONTA_BANCARIA_CHEQUE"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

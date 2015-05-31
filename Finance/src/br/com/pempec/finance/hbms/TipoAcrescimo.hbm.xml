@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="TipoAcrescimoModel" table="TIPO_ACRESCIMO">
+        <composite-id class="PKModel" name="pk">
+            <key-property column="ID_TIPO_ACRESCIMO" name="id"/>
+            <key-many-to-one class="OrganizacaoModel" column="ID_ORGANIZACAO" name="organizacao"/>
+        </composite-id>
+        <property name="descricao"/>
+        <many-to-one cascade="none" class="HistoricoModel" insert="true" lazy="no-proxy" name="historico" update="true">
+            <column name="ID_HISTORICO"/>
+            <formula>ID_ORGANIZACAO</formula>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

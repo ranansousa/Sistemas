@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="br.com.pempec.finance.models">
+    <class name="ParametrosModel" table="PARAMETROS">
+        <id name="codigo"/>
+        <property name="mensagem"/>
+        <property name="tela"/>
+        <property name="status"/>
+        <property name="valor"/>
+        <property name="data"/>
+        <property name="porcentagem"/>
+    </class>
+</hibernate-mapping>
