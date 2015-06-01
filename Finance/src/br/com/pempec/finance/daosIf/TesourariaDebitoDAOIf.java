@@ -47,11 +47,15 @@ public interface TesourariaDebitoDAOIf {
 
     public List<TesourariaDebitoModel> obterTesourariaDebitoExportacao(OrganizacaoModel model, Date dataInicial, Date dataFinal)
             throws SystemException;
+    
 
     public List<TesourariaDebitoModel> obterTesourariaDebitoExportacaoRelatorio(OrganizacaoModel model, Date dataInicial, Date dataFinal)
             throws SystemException;
-
+    
     public void depositarBanco(TesourariaDebitoModel tesourariaModel, ContaBancariaCreditoModel ctbCrModel)
+            throws SystemException;
+    
+    public List<TesourariaDebitoModel> obterDepositoBanco(OrganizacaoModel model, Date dataInicial, Date dataFinal)
             throws SystemException;
 
     public void excluirDepositoBanco(TesourariaDebitoModel tesourariaModel, ContaBancariaCreditoModel ctbCrModel)

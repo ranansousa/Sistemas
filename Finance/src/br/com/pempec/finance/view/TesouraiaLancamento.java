@@ -74,9 +74,12 @@ public class TesouraiaLancamento extends FinanceInternalFrame implements IRepopu
             Collection<SacadoModel> lColecaoSacado = sacadoBO.obterTodos(organizacaoModel);
 
             Collection<FuncionarioModel> lFuncionario = new ArrayList<FuncionarioModel>();
+            
+            Collection<HistoricoModel> lHistoricoDebito = new ArrayList<HistoricoModel>();
 
             Collection<HistoricoModel> lHistoricoCredito = new ArrayList<HistoricoModel>();
-            Collection<HistoricoModel> lHistoricoDebito = new ArrayList<HistoricoModel>();
+            
+            
 
             //historicos
 

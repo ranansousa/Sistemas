@@ -31,15 +31,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelCheques" alignment="1" max="32767" attributes="1"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="panelCheques" min="-2" max="-2" attributes="1"/>
+              <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelCheques" min="-2" pref="613" max="-2" attributes="0"/>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
+              <Component id="panelCheques" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="105" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,7 +116,7 @@
                               <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="318" max="32767" attributes="0"/>
+                      <EmptySpace pref="569" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -404,188 +407,171 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTDescricaoDebito" min="-2" pref="703" max="-2" attributes="1"/>
-                                              <Component id="labelDescricao2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                              <Component id="comboHistoricoDebito" alignment="0" min="-2" pref="267" max="-2" attributes="1"/>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="labelCedente" alignment="0" min="-2" max="-2" attributes="1"/>
-                                                      <Component id="comboCedente" alignment="0" min="-2" pref="569" max="-2" attributes="1"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="labelExportDebito" min="-2" pref="120" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                      <EmptySpace min="-2" pref="691" max="-2" attributes="0"/>
+                                      <Component id="labelDataVencimento3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jFTDataMovimentoDebito" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <Component id="labelDataVencimento1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="labelDataEmissao1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jFTDataContabilDebito" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelDataEmissao2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jFTDataRegistro" min="-2" pref="115" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTObservacaoDebito" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelDescricao2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTDescricaoDebito" min="-2" pref="415" max="-2" attributes="1"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jTObservacaoDebito" min="-2" pref="385" max="-2" attributes="1"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="comboResponsavelDebito" max="32767" attributes="1"/>
+                                          </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="labelDescricao3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="comboResponsavelDebito" min="-2" pref="200" max="-2" attributes="1"/>
-                                                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                                                      <Component id="labelTipoLancamentoDebito" min="-2" pref="110" max="-2" attributes="1"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="labelDescricao3" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+                                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jPanel4" alignment="0" min="-2" max="-2" attributes="1"/>
+                                                  <Component id="labelNumeroDocumento1" min="-2" max="-2" attributes="1"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="comboTituloDebito" min="-2" pref="194" max="-2" attributes="1"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="campoIDTesDebito" min="-2" pref="16" max="-2" attributes="1"/>
+                                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                                      <Component id="jFTValorDebito" min="-2" pref="111" max="-2" attributes="1"/>
+                                                  </Group>
                                               </Group>
-                                              <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="266" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jPanel3" min="-2" pref="311" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="labelNumeroDocumento1" min="-2" max="-2" attributes="1"/>
-                                          <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="comboTituloDebito" max="32767" attributes="1"/>
-                                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jFTDataMovimentoDebito" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <Component id="labelDataVencimento1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="labelDataEmissao1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jFTDataContabilDebito" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labelDataEmissao2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jFTDataRegistro" min="-2" pref="115" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="labelDataVencimento3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jFTValorDebito" min="-2" pref="111" max="-2" attributes="1"/>
-                                      </Group>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jPanel4" pref="703" max="32767" attributes="1"/>
+                                  <Component id="jPanel5" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="campoCodigoDebito" min="-2" pref="16" max="-2" attributes="1"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="labelExportDebito" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelTipoLancamentoDebito" min="-2" pref="110" max="-2" attributes="1"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="labelDataVencimento3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jFTValorDebito" min="-2" pref="25" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="labelDataVencimento1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jFTDataMovimentoDebito" min="-2" pref="25" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="labelDataEmissao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelDataEmissao2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jFTDataContabilDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                              <Component id="jFTDataRegistro" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="labelNumeroDocumento1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="comboTituloDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="campoIDTesDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="labelNumeroDocumento1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelDataVencimento3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="comboTituloDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Component id="jFTValorDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Component id="campoCodigoDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="labelDataVencimento1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jFTDataMovimentoDebito" min="-2" pref="25" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="comboHistoricoDebito" min="-2" pref="25" max="-2" attributes="1"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="18" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="labelDataEmissao1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelDataEmissao2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jFTDataContabilDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Component id="jFTDataRegistro" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="labelCedente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="comboCedente" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="labelExportDebito" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="labelDescricao2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTDescricaoDebito" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelDescricao3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTObservacaoDebito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="comboResponsavelDebito" alignment="3" min="-2" pref="25" max="-2" attributes="1"/>
+                              </Group>
+                              <EmptySpace pref="33" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="labelDescricao2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTDescricaoDebito" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                      <Component id="labelDescricao3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTObservacaoDebito" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="comboResponsavelDebito" alignment="1" min="-2" pref="25" max="-2" attributes="1"/>
-                          <Component id="labelTipoLancamentoDebito" min="-2" pref="43" max="-2" attributes="1"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelTipoLancamentoDebito" min="-2" pref="30" max="-2" attributes="1"/>
+                                  <Component id="labelExportDebito" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="campoCodigoDebito">
+            <Component class="javax.swing.JTextField" name="campoIDTesDebito">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>
@@ -620,21 +606,6 @@
             <Component class="javax.swing.JLabel" name="labelNumeroDocumento1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero do Documento"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Hist&#xf3;rico"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="comboHistoricoDebito">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelDescricao3">
@@ -676,6 +647,9 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="Tipo Lan&#xe7;amento">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
                       <Font PropertyName="font" name="Arial" size="10" style="1"/>
                     </TitledBorder>
                   </Border>
@@ -709,7 +683,7 @@
                           <Component id="botaoLimparDebito" min="-2" pref="75" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="botaoFecharDebito" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace pref="162" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -767,21 +741,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JComboBox" name="comboCedente">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="11" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelCedente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cedente"/>
-              </Properties>
-            </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="jFTDataMovimentoDebito">
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="jFTDataContabilDebito">
@@ -814,7 +773,11 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Data a ser Pesquisa"/>
+                    <TitledBorder title="Data a ser Pesquisa">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                    </TitledBorder>
                   </Border>
                 </Property>
               </Properties>
@@ -824,10 +787,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jFTDataPesquisarInicial" min="-2" pref="132" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jFTDataPesquisarFinal" min="-2" pref="132" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jFTDataPesquisarInicial" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace pref="53" max="32767" attributes="0"/>
+                          <Component id="jFTDataPesquisarFinal" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnPesquisar" min="-2" pref="90" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -838,6 +803,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jFTDataPesquisarInicial" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="jFTDataPesquisarFinal" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="btnPesquisar" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -849,6 +815,14 @@
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="jFTDataPesquisarFinal">
                 </Component>
+                <Component class="javax.swing.JButton" name="btnPesquisar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pesquisar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="jFTDataRegistro">
@@ -858,6 +832,148 @@
                 <Property name="text" type="java.lang.String" value="Data Registro"/>
               </Properties>
             </Component>
+            <Container class="javax.swing.JPanel" name="jPanel5">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Dados Banc&#xe1;rios">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                    </TitledBorder>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="comboContaBancariaEstorno" alignment="0" min="-2" pref="180" max="-2" attributes="1"/>
+                                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTBanco" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTAgencia" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="194" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="jTCliente" alignment="1" max="32767" attributes="1"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jTDescricao" min="-2" pref="440" max="-2" attributes="1"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="campoIDContaCredito" min="-2" pref="16" max="-2" attributes="1"/>
+                                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="comboContaBancariaEstorno" alignment="3" min="-2" pref="25" max="-2" attributes="1"/>
+                              <Component id="jTBanco" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jTAgencia" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jTCliente" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTDescricao" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="campoIDContaCredito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel12">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Conta Banc&#xe1;ria"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboContaBancariaEstorno">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="10" style="0"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTDescricao">
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTBanco">
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTAgencia">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel13">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Banco"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ag&#xea;ncia"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cliente"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTCliente">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel16">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="campoIDContaCredito">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

@@ -119,6 +119,11 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
         criteria.setFetchMode("loteContabil", FetchMode.JOIN);
 
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getPk().getOrganizacao().getId()));
+        
+        
+        Criteria subCriteria1 = criteria.createCriteria("contaBancaria", CriteriaSpecification.LEFT_JOIN);
+
+        subCriteria1.setFetchMode("banco", FetchMode.JOIN);
 
 
         return (ContaBancariaCreditoModel) criteria.uniqueResult();

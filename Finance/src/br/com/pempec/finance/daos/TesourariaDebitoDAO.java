@@ -79,7 +79,6 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
         criteria.setFetchMode("usuario", FetchMode.JOIN);
         criteria.setFetchMode("loteContabil", FetchMode.JOIN);
 
-
         return (TesourariaDebitoModel) criteria.uniqueResult();
 
     }
@@ -109,14 +108,11 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
         Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
                 TesourariaDebitoModel.class);
 
-
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getId()));
         criteria.setFetchMode("loteContabil", FetchMode.JOIN);
 
         criteria.addOrder(Order.desc("dataMovimento"));
         criteria.addOrder(Order.desc("historico"));
-
-
 
         return criteria.list();
     }
@@ -164,16 +160,22 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
             criteria.add(Restrictions.eq("numeroDocumento", model.getNumeroDocumento()));
         }
 
-        criteria.setMaxResults(1);
-
-        criteria.add(Restrictions.eq("pk.organizacao.id", model.getPk().getOrganizacao().getId()));
-
         criteria.setFetchMode("historico", FetchMode.JOIN);
         criteria.setFetchMode("responsavel", FetchMode.JOIN);
-        criteria.setFetchMode("cedenteModel", FetchMode.JOIN);
         criteria.setFetchMode("tituloPagarBaixaModel", FetchMode.JOIN);
         criteria.setFetchMode("usuario", FetchMode.JOIN);
         criteria.setFetchMode("loteContabil", FetchMode.JOIN);
+        
+        Criteria subCriteria = criteria.createCriteria("cedenteModel", CriteriaSpecification.LEFT_JOIN);
+
+        subCriteria.setFetchMode("cartaoCreditoModel", FetchMode.JOIN);
+        subCriteria.setFetchMode("endereco", FetchMode.JOIN);
+        subCriteria.setFetchMode("contato", FetchMode.JOIN);
+        
+        
+
+        criteria.setMaxResults(1);
+        criteria.add(Restrictions.eq("pk.organizacao.id", model.getPk().getOrganizacao().getId()));
 
         return (TesourariaDebitoModel) criteria.uniqueResult();
 
@@ -274,31 +276,51 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
             HibernateUtil.getCurrentSession().save(mov);
         }
 
-
         if (ctbCrModel.getMovimentoDiarioModel() != null
                 && !ctbCrModel.getMovimentoDiarioModel().getCodigo().isEmpty()) {
             MovimentoDiarioModel mov = ctbCrModel.getMovimentoDiarioModel();
             HibernateUtil.getCurrentSession().save(mov);
         }
 
-
-
         if (tesourariaModel != null) {
 
             HibernateUtil.getCurrentSession().save(tesourariaModel);
         }
-
 
         if (ctbCrModel != null) {
 
             HibernateUtil.getCurrentSession().save(ctbCrModel);
         }
 
-
         Repopulador.repopulador();
     }
 
-    
+    public List<TesourariaDebitoModel> obterDepositoBanco(OrganizacaoModel model, Date dataInicial, Date dataFinal)
+            throws SystemException {
+
+        Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
+                TesourariaDebitoModel.class);
+
+        criteria.add(Restrictions.eq("pk.organizacao.id", model.getId()));
+
+        criteria.add(Restrictions.between("dataMovimento", dataInicial, dataFinal));
+
+        criteria.add(Restrictions.isNull("loteContabil.pk.id"));
+
+        //so deve trazer transferencias para banco 
+        criteria.add(Restrictions.eq("historico.pk.id", Constantes.HISTORICO_TESOURARIA_DEPOSITO));
+
+        Criteria subCriteria = criteria.createCriteria("historico", CriteriaSpecification.LEFT_JOIN);
+
+        subCriteria.setFetchMode("contaContabil", FetchMode.JOIN);
+
+        criteria.setFetchMode("cedenteModel", FetchMode.JOIN);
+
+        criteria.addOrder(Order.desc("dataMovimento"));
+
+        return criteria.list();
+    }
+
     @HibernateTransaction
     public void excluirDepositoBanco(TesourariaDebitoModel tesourariaModel, ContaBancariaCreditoModel ctbCrModel)
             throws SystemException {
@@ -309,33 +331,25 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
             HibernateUtil.getCurrentSession().save(mov);
         }
 
-
         if (ctbCrModel.getMovimentoDiarioModel() != null
                 && !ctbCrModel.getMovimentoDiarioModel().getCodigo().isEmpty()) {
             MovimentoDiarioModel mov = ctbCrModel.getMovimentoDiarioModel();
             HibernateUtil.getCurrentSession().save(mov);
         }
 
-
-
         if (tesourariaModel != null) {
 
             HibernateUtil.getCurrentSession().delete(tesourariaModel);
         }
-
 
         if (ctbCrModel != null) {
 
             HibernateUtil.getCurrentSession().delete(ctbCrModel);
         }
 
-
         Repopulador.repopulador();
     }
 
-
-    
-    
     @HibernateTransaction
     public void depositarChequesBanco(Collection<TituloReceberBaixaChequeModel> collCheques, ContaBancariaCreditoModel ctbCrModel, LoteDepositoModel lote)
             throws SystemException {
@@ -343,14 +357,11 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
         // caso de uso:  Depositar cheques selecionados
         // pega a colecao de cheques e faz update no banco
         // faz o lancamento em conta bancaria
-
-
         if (ctbCrModel.getMovimentoDiarioModel() != null
                 && !ctbCrModel.getMovimentoDiarioModel().getCodigo().isEmpty()) {
             MovimentoDiarioModel mov = ctbCrModel.getMovimentoDiarioModel();
             HibernateUtil.getCurrentSession().save(mov);
         }
-
 
 //alterando os cheques selecionado com o lote deposito e data do deposito
         if (collCheques != null && collCheques.size() > 0) {
@@ -374,7 +385,6 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
             HibernateUtil.getCurrentSession().save(ctbCrModel);
         }
 
-
         Repopulador.repopulador();
     }
 
@@ -394,16 +404,14 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
 
         Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
                 TesourariaDebitoModel.class);
-        
-        criteria.add(Restrictions.between("dataMovimento",  (filter.getDataInicial()),(filter.getDataFinal())));
-        criteria.add(Restrictions.eq("pk.organizacao.id", filter.getOrganizacao()));        
-        
-        criteria.setFetchMode("historico", FetchMode.JOIN);
-        criteria.setFetchMode("cedenteModel", FetchMode.JOIN);       
 
-        
+        criteria.add(Restrictions.between("dataMovimento", (filter.getDataInicial()), (filter.getDataFinal())));
+        criteria.add(Restrictions.eq("pk.organizacao.id", filter.getOrganizacao()));
+
+        criteria.setFetchMode("historico", FetchMode.JOIN);
+        criteria.setFetchMode("cedenteModel", FetchMode.JOIN);
+
         criteria.addOrder(Order.asc("dataMovimento"));
-        
 
         return criteria.list();
     }
