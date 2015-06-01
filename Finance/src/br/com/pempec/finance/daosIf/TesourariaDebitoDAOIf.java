@@ -54,6 +54,9 @@ public interface TesourariaDebitoDAOIf {
     public void depositarBanco(TesourariaDebitoModel tesourariaModel, ContaBancariaCreditoModel ctbCrModel)
             throws SystemException;
 
+    public void excluirDepositoBanco(TesourariaDebitoModel tesourariaModel, ContaBancariaCreditoModel ctbCrModel)
+            throws SystemException;
+
     public void depositarChequesBanco(Collection<TituloReceberBaixaChequeModel> collCheques, ContaBancariaCreditoModel ctbCrModel, LoteDepositoModel lote)
             throws SystemException;
 

@@ -298,6 +298,44 @@ public class TesourariaDebitoDAO implements TesourariaDebitoDAOIf {
         Repopulador.repopulador();
     }
 
+    
+    @HibernateTransaction
+    public void excluirDepositoBanco(TesourariaDebitoModel tesourariaModel, ContaBancariaCreditoModel ctbCrModel)
+            throws SystemException {
+
+        if (tesourariaModel.getMovimentoDiarioModel() != null
+                && !tesourariaModel.getMovimentoDiarioModel().getCodigo().isEmpty()) {
+            MovimentoDiarioModel mov = tesourariaModel.getMovimentoDiarioModel();
+            HibernateUtil.getCurrentSession().save(mov);
+        }
+
+
+        if (ctbCrModel.getMovimentoDiarioModel() != null
+                && !ctbCrModel.getMovimentoDiarioModel().getCodigo().isEmpty()) {
+            MovimentoDiarioModel mov = ctbCrModel.getMovimentoDiarioModel();
+            HibernateUtil.getCurrentSession().save(mov);
+        }
+
+
+
+        if (tesourariaModel != null) {
+
+            HibernateUtil.getCurrentSession().delete(tesourariaModel);
+        }
+
+
+        if (ctbCrModel != null) {
+
+            HibernateUtil.getCurrentSession().delete(ctbCrModel);
+        }
+
+
+        Repopulador.repopulador();
+    }
+
+
+    
+    
     @HibernateTransaction
     public void depositarChequesBanco(Collection<TituloReceberBaixaChequeModel> collCheques, ContaBancariaCreditoModel ctbCrModel, LoteDepositoModel lote)
             throws SystemException {

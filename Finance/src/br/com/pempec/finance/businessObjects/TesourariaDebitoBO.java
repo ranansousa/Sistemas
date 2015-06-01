@@ -89,6 +89,15 @@ public class TesourariaDebitoBO {
         DAOFactory.getInstance().getTesourariaDebitoDAO().depositarBanco(tesourariaModel, ctbCrModel);
     }
 
+    
+    public void excluirDepositoBanco(TesourariaDebitoModel tesourariaModel, ContaBancariaCreditoModel ctbCrModel)
+            throws SystemException, ApplicationException {
+        DAOFactory.getInstance().getTesourariaDebitoDAO().excluirDepositoBanco(tesourariaModel, ctbCrModel);
+    }
+    
+            
+            
+            
     public void depositarChequesBanco(Collection<TituloReceberBaixaChequeModel> collCheques, ContaBancariaCreditoModel ctbCrModel, LoteDepositoModel lote)
             throws SystemException, ApplicationException {
         DAOFactory.getInstance().getTesourariaDebitoDAO().depositarChequesBanco(collCheques, ctbCrModel, lote);

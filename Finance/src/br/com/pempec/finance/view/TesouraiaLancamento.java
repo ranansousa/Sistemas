@@ -1293,6 +1293,10 @@ private void botaoEstornarDebitoActionPerformed(java.awt.event.ActionEvent evt) 
                 tab.setMovimentoDiarioModel(registroMovimento("Estornar", tab.getNumeroDocumento(), tab.getNumeroDocumento() + " para " + tab.getDescricao(), tab.getValorNominal(), "Estornado"));
                 tab.getMovimentoDiarioModel().setObservacao("Lanc. Tesour. Debito Estornado ");
 
+                
+                
+                
+                
                 tesourariaDebitoBO.excluir(tab);
 
                 this.botaoLimparDebitoActionPerformed(evt);
