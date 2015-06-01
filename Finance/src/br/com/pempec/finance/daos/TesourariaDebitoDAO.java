@@ -14,8 +14,6 @@ import br.com.pempec.finance.models.TituloPagarBaixaModel;
 import br.com.pempec.finance.models.TituloReceberBaixaChequeModel;
 import br.com.pempec.finance.models.reports.FilterReportExtratoTesouraria;
 import br.com.pempec.finance.utils.Constantes;
-import br.com.pempec.finance.utils.PempecParse;
-import br.com.pempec.finance.utils.PempecUtil;
 import br.com.pempec.finance.utils.Repopulador;
 import java.util.Collection;
 import java.util.Date;

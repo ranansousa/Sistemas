@@ -29,13 +29,7 @@ import br.com.pempec.finance.utils.PempecUtil;
 import br.com.pempec.finance.utils.PrintScreen;
 import br.com.pempec.finance.utils.Tela;
 import br.com.pempec.finance.utils.TesourariaServices;
-import br.com.pempec.finance.utils.iterators.TesourariaDebitoTextFilterator;
-import ca.odell.glazedlists.EventList;
-import ca.odell.glazedlists.GlazedLists;
-import ca.odell.glazedlists.matchers.TextMatcherEditor;
-import ca.odell.glazedlists.swing.AutoCompleteSupport;
 import java.awt.Color;
-import java.awt.event.InputEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -55,7 +49,7 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
     private CedenteBO cedenteBO = new CedenteBO();
     private HistoricoBO historicoBO = new HistoricoBO();
 
-    Collection<TesourariaDebitoModel> lColecaoDebito = new ArrayList<TesourariaDebitoModel>();
+    Collection<TesourariaDebitoModel> lColecaoDebito;
 
     private long tela = Tela.TELA_TESOURARIA_TRANSFERIR_BANCO.getTela();
 
@@ -113,7 +107,6 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
             lContas.addAll(contaBancariaBO.obterTodos(organizacaoModel));
 
             comboContaBancaria.setModel(new javax.swing.DefaultComboBoxModel(lContas.toArray()));
-            comboContaBancariaEstorno.setModel(new javax.swing.DefaultComboBoxModel(lContas.toArray()));
 
             //responsavel
             Collection<FuncionarioModel> lFuncionario = new ArrayList<FuncionarioModel>();
@@ -128,7 +121,17 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
 
             comboFuncionario.setModel(new javax.swing.DefaultComboBoxModel(lFuncionario.toArray()));
 
-            comboResponsavelDebito.setModel(new javax.swing.DefaultComboBoxModel(lFuncionario.toArray()));
+            //Docmentos
+            lColecaoDebito = new ArrayList<TesourariaDebitoModel>();
+
+            TesourariaDebitoModel tesourariaDebitoModel = new TesourariaDebitoModel();
+
+            tesourariaDebitoModel.setNumeroDocumento(" -> Selecione <- ");
+
+            lColecaoDebito.add(tesourariaDebitoModel);
+
+            //lColecaoDebito.addAll(tesourariaDebitoBO.obterTodos(organizacaoModel));
+            comboTituloDebito.setModel(new javax.swing.DefaultComboBoxModel(lColecaoDebito.toArray()));
 
         } catch (ApplicationException ex) {
 
@@ -176,45 +179,40 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
         jLabel3 = new javax.swing.JLabel();
         abaDebito = new javax.swing.JPanel();
         campoIDTesDebito = new javax.swing.JTextField();
-        labelDescricao2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        comboResponsavelDebito = new javax.swing.JComboBox();
-        jTDescricaoDebito = new javax.swing.JTextField();
-        labelDataVencimento1 = new javax.swing.JLabel();
         labelNumeroDocumento1 = new javax.swing.JLabel();
-        labelDescricao3 = new javax.swing.JLabel();
-        jTObservacaoDebito = new javax.swing.JTextField();
         comboTituloDebito = new javax.swing.JComboBox();
-        jFTValorDebito = new br.com.pempec.componentes.JDoubleField();
-        labelDataVencimento3 = new javax.swing.JLabel();
-        labelDataEmissao1 = new javax.swing.JLabel();
-        labelTipoLancamentoDebito = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         botaoFecharDebito = new javax.swing.JButton();
         botaoLimparDebito = new javax.swing.JButton();
         botaoEstornarDebito = new javax.swing.JButton();
-        botaoAlterarDebito = new javax.swing.JButton();
-        jFTDataMovimentoDebito = new org.jdesktop.swingx.JXDatePicker();
-        jFTDataContabilDebito = new org.jdesktop.swingx.JXDatePicker();
-        labelExportDebito = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jFTDataPesquisarInicial = new org.jdesktop.swingx.JXDatePicker();
         jFTDataPesquisarFinal = new org.jdesktop.swingx.JXDatePicker();
         btnPesquisar = new javax.swing.JButton();
-        jFTDataRegistro = new org.jdesktop.swingx.JXDatePicker();
-        labelDataEmissao2 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        comboContaBancariaEstorno = new javax.swing.JComboBox();
-        jTDescricao = new javax.swing.JTextField();
-        jTBanco = new javax.swing.JTextField();
-        jTAgencia = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jTCliente = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
+        lblContaCBC = new javax.swing.JLabel();
+        lblBancoCBC = new javax.swing.JLabel();
+        lblAgenciaCBC = new javax.swing.JLabel();
+        lblCllienteCBC = new javax.swing.JLabel();
+        lblDescricaoCBC = new javax.swing.JLabel();
         campoIDContaCredito = new javax.swing.JTextField();
+        lblDataRegistroCBC = new javax.swing.JLabel();
+        lblDataMovimentoCBC = new javax.swing.JLabel();
+        lblDataContabilCBC = new javax.swing.JLabel();
+        lblTipoOpBancariaCBC = new javax.swing.JLabel();
+        lblValorCBC = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblDescricaoTD = new javax.swing.JLabel();
+        lblObservacaoTD = new javax.swing.JLabel();
+        lblValorTD = new javax.swing.JLabel();
+        lblResponsavelTD = new javax.swing.JLabel();
+        lblDataMovimentoTD = new javax.swing.JLabel();
+        lblDataContabilTD = new javax.swing.JLabel();
+        lblDataRegistroTD = new javax.swing.JLabel();
+        lblHistoricoTD = new javax.swing.JLabel();
+        labelTipoLancamentoDebito = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
@@ -363,7 +361,7 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
                     .addGroup(abaConsultaLayout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(569, Short.MAX_VALUE))
+                .addContainerGap(521, Short.MAX_VALUE))
         );
         abaConsultaLayout.setVerticalGroup(
             abaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,17 +407,7 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
 
         campoIDTesDebito.setEditable(false);
 
-        labelDescricao2.setText("Descrição");
-
-        jLabel9.setText("Responsável");
-
-        comboResponsavelDebito.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-
-        labelDataVencimento1.setText("Data Movimento");
-
         labelNumeroDocumento1.setText("Número do Documento");
-
-        labelDescricao3.setText("Observação");
 
         comboTituloDebito.setToolTipText("");
         comboTituloDebito.addActionListener(new java.awt.event.ActionListener() {
@@ -427,15 +415,6 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
                 comboTituloDebitoActionPerformed(evt);
             }
         });
-
-        labelDataVencimento3.setText("Valor");
-
-        labelDataEmissao1.setText("Data Contabil");
-
-        labelTipoLancamentoDebito.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        labelTipoLancamentoDebito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelTipoLancamentoDebito.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Tipo Lançamento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 10))); // NOI18N
-        labelTipoLancamentoDebito.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255)));
         jPanel4.setPreferredSize(new java.awt.Dimension(734, 65));
@@ -464,45 +443,29 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
             }
         });
 
-        botaoAlterarDebito.setMnemonic('A');
-        botaoAlterarDebito.setText("Alterar");
-        botaoAlterarDebito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAlterarDebitoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addComponent(botaoAlterarDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(botaoEstornarDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(botaoLimparDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoFecharDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAlterarDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEstornarDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoLimparDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoFecharDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        labelExportDebito.setBackground(new java.awt.Color(0, 204, 204));
-        labelExportDebito.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        labelExportDebito.setForeground(new java.awt.Color(255, 0, 0));
-        labelExportDebito.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 0)), "Exportação"));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data a ser Pesquisa"));
 
@@ -513,15 +476,25 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("De :");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("até :");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jFTDataPesquisarInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jFTDataPesquisarFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel17)
+                .addGap(42, 42, 42)
+                .addComponent(jFTDataPesquisarInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jFTDataPesquisarFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -533,87 +506,170 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFTDataPesquisarInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFTDataPesquisarFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        labelDataEmissao2.setText("Data Registro");
-
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Dados Bancários"));
+        jPanel5.setForeground(new java.awt.Color(0, 153, 153));
 
-        jLabel12.setText("Conta Bancária");
+        lblContaCBC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblContaCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Conta"));
 
-        comboContaBancariaEstorno.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        lblBancoCBC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBancoCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Banco"));
 
-        jLabel13.setText("Banco");
+        lblAgenciaCBC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAgenciaCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Agência"));
 
-        jLabel14.setText("Agência");
+        lblCllienteCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cliente"));
 
-        jLabel15.setText("Cliente");
-
-        jLabel16.setText("Descrição");
+        lblDescricaoCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Descrição"));
 
         campoIDContaCredito.setEditable(false);
+
+        lblDataRegistroCBC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDataRegistroCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data Registro"));
+
+        lblDataMovimentoCBC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDataMovimentoCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data Movimento"));
+
+        lblDataContabilCBC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDataContabilCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data Contábil"));
+
+        lblTipoOpBancariaCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Tipo Operação Bancária"));
+
+        lblValorCBC.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        lblValorCBC.setForeground(new java.awt.Color(0, 153, 204));
+        lblValorCBC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblValorCBC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Valor"));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblDescricaoCBC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(lblBancoCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblAgenciaCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblContaCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTipoOpBancariaCBC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboContaBancariaEstorno, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(0, 194, Short.MAX_VALUE))
-                                    .addComponent(jTCliente, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jTDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(campoIDContaCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))))
+                                .addComponent(lblDataRegistroCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(lblDataMovimentoCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblDataContabilCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCllienteCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(campoIDContaCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblValorCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboContaBancariaEstorno, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(campoIDContaCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBancoCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAgenciaCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCllienteCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblContaCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDescricaoCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataRegistroCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblDataMovimentoCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDataContabilCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoIDContaCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTipoOpBancariaCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblValorCBC, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Dados Tesouraria"));
+
+        lblDescricaoTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Descrição"));
+
+        lblObservacaoTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Observação"));
+
+        lblValorTD.setForeground(new java.awt.Color(0, 153, 204));
+        lblValorTD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblValorTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Valor"));
+
+        lblResponsavelTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Responsável"));
+
+        lblDataMovimentoTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data Movimento"));
+
+        lblDataContabilTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data Contábil"));
+
+        lblDataRegistroTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data Registro"));
+
+        lblHistoricoTD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Histórico"));
+
+        labelTipoLancamentoDebito.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        labelTipoLancamentoDebito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTipoLancamentoDebito.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Tipo Lançamento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 10))); // NOI18N
+        labelTipoLancamentoDebito.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDescricaoTD, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacaoTD, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lblValorTD, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDataMovimentoTD, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblResponsavelTD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lblDataContabilTD, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDataRegistroTD, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelTipoLancamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblHistoricoTD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDataRegistroTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblValorTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDescricaoTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataMovimentoTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataContabilTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTipoLancamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblObservacaoTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResponsavelTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHistoricoTD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout abaDebitoLayout = new javax.swing.GroupLayout(abaDebito);
@@ -621,125 +677,48 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
         abaDebitoLayout.setHorizontalGroup(
             abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaDebitoLayout.createSequentialGroup()
-                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(abaDebitoLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(abaDebitoLayout.createSequentialGroup()
-                                .addGap(691, 691, 691)
-                                .addComponent(labelDataVencimento3)
-                                .addGap(97, 97, 97)
-                                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFTDataMovimentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelDataVencimento1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(abaDebitoLayout.createSequentialGroup()
-                                        .addComponent(labelDataEmissao1)
-                                        .addGap(50, 50, 50))
-                                    .addComponent(jFTDataContabilDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelDataEmissao2)
-                                    .addComponent(jFTDataRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(abaDebitoLayout.createSequentialGroup()
-                                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelDescricao2)
-                                    .addComponent(jTDescricaoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(abaDebitoLayout.createSequentialGroup()
-                                        .addComponent(jTObservacaoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(comboResponsavelDebito, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(abaDebitoLayout.createSequentialGroup()
-                                        .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(abaDebitoLayout.createSequentialGroup()
-                                                .addComponent(labelDescricao3)
-                                                .addGap(337, 337, 337)
-                                                .addComponent(jLabel9))
-                                            .addComponent(labelNumeroDocumento1)
-                                            .addGroup(abaDebitoLayout.createSequentialGroup()
-                                                .addComponent(comboTituloDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(campoIDTesDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(15, 15, 15)
-                                                .addComponent(jFTValorDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 266, Short.MAX_VALUE))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, abaDebitoLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelExportDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelTipoLancamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)))
-                .addContainerGap())
+                                .addComponent(comboTituloDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(campoIDTesDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelNumeroDocumento1)))
+                    .addGroup(abaDebitoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(abaDebitoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(abaDebitoLayout.createSequentialGroup()
+                        .addGap(405, 405, 405)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         abaDebitoLayout.setVerticalGroup(
             abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaDebitoLayout.createSequentialGroup()
-                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(abaDebitoLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDebitoLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDebitoLayout.createSequentialGroup()
-                                    .addComponent(labelDataVencimento3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jFTValorDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDebitoLayout.createSequentialGroup()
-                                    .addComponent(labelDataVencimento1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jFTDataMovimentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDebitoLayout.createSequentialGroup()
-                                    .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelDataEmissao1)
-                                        .addComponent(labelDataEmissao2))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jFTDataContabilDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jFTDataRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(20, 20, 20)
+                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(abaDebitoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labelNumeroDocumento1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboTituloDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoIDTesDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(abaDebitoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(labelDescricao2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTDescricaoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
-                    .addGroup(abaDebitoLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelDescricao3)
-                            .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTObservacaoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboResponsavelDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)))
-                .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(abaDebitoLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(abaDebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTipoLancamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelExportDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(58, 58, 58)
+                            .addComponent(comboTituloDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoIDTesDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         panelCheques.addTab("Estornos", abaDebito);
@@ -749,15 +728,15 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelCheques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addComponent(panelCheques, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelCheques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addComponent(panelCheques, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -932,18 +911,16 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
     }//GEN-LAST:event_botaoDepositarActionPerformed
 
     private void comboTituloDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTituloDebitoActionPerformed
-        String evento = evt.getActionCommand();
-        int modifiers = evt.getModifiers();
 
-        boolean userEnteredTextAndPressedReturn = "comboBoxEdited".equals(evento);
-        boolean userSelectedTextFromList = "comboBoxChanged".equals(evento) && (modifiers & InputEvent.BUTTON1_MASK) != 0;
+        if (comboTituloDebito.getSelectedItem() != null) {
 
-        if (comboTituloDebito.getSelectedItem() != null && (userEnteredTextAndPressedReturn || userSelectedTextFromList)) {
+            jFTDataPesquisarInicial.setEnabled(false);
+            jFTDataPesquisarFinal.setEnabled(false);
+            btnPesquisar.setEnabled(false);
 
             try {
 
                 TesourariaDebitoModel tab = new TesourariaDebitoModel();
-                
 
                 tab.setNumeroDocumento(comboTituloDebito.getSelectedItem().toString());
                 tab.setPk(new PKModel());
@@ -952,49 +929,26 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
                 tab = tesourariaDebitoBO.consultarPorTemplate(tab);
 
                 if (tab != null && tab.getPk() != null) {
-                    
-                    
-                    HistoricoModel hst = new HistoricoModel();
-                    hst.setPk(new PKModel());
-                    hst.getPk().setOrganizacao(organizacaoModel);
-                    hst.getPk().setId(Constantes.HISTORICO_TESOURARIA_DEPOSITO);
-                    tab.setHistorico(hst);
-
-                    CedenteModel cedente = new CedenteModel();
-                    cedente.setPk(new PKModel());
-                    cedente.getPk().setOrganizacao(organizacaoModel);
-                    cedente.getPk().setId(Controller.getOrganizacao().getId());
-
-                    if (cedente != null && !cedente.getPk().getId().isEmpty()) {
-                        if (!Controller.getOrganizacao().getId().equalsIgnoreCase(cedente.getPk().getId())) {
-                            exibeMensagemAviso("Problemas com o cedente. \nErro do Cedente igual a Organizacao", "Erro de Cedente");
-                            return;
-                        }
-                    } else {
-
-                        tab.setCedenteModel(cedente);
-                    }
 
                     campoIDTesDebito.setText(tab.getPk().getId());
-                    jFTDataContabilDebito.setDate(tab.getDataContabil());
-                    jFTDataMovimentoDebito.setDate(tab.getDataMovimento());
-                    jFTDataRegistro.setDate(tab.getDataRegistro());
-
+                    lblDescricaoTD.setText(tab.getDescricao());
                     Double valor = tab.getValorNominal();
-                    jFTValorDebito.setText(PempecParse.doubleToZero(valor));
-                    jTDescricaoDebito.setText(tab.getDescricao());
-                    jTObservacaoDebito.setText(tab.getObservacao());
+                    lblValorTD.setText(PempecParse.doubleToZero(valor));
+
+                    lblDataContabilTD.setText(PempecParse.dateToString(tab.getDataContabil()));
+                    lblDataMovimentoTD.setText(PempecParse.dateToString(tab.getDataMovimento()));
+                    lblDataRegistroTD.setText(PempecParse.dateToString(tab.getDataRegistro()));
+
+                    lblObservacaoTD.setText(tab.getObservacao());
+
+                    if (tab.getHistorico() != null) {
+                        lblHistoricoTD.setText(tab.getHistorico().getPk().getId());
+                    }
+
                     labelTipoLancamentoDebito.setText(tab.getTipoLancamento());
 
                     if (tab.getResponsavel() != null) {
-
-                        for (int i = 1; i < comboResponsavelDebito.getItemCount(); i++) {
-                            if (tab.getResponsavel().getPk().getId().equalsIgnoreCase(((FuncionarioModel) comboResponsavelDebito.getItemAt(i)).getPk().getId())) {
-                                comboResponsavelDebito.setSelectedIndex(i);
-                                break;
-                            }
-                        }
-
+                        lblResponsavelTD.setText(tab.getResponsavel().getNome());
                     }
 
                     ContaBancariaCreditoModel contaCreditada = new ContaBancariaCreditoModel();
@@ -1006,30 +960,36 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
 
                     if (contaCreditada != null) {
 
-                        if (contaCreditada.getContaBancaria() != null) {
-                            for (int i = 1; i < comboContaBancariaEstorno.getItemCount(); i++) {
-                                if (contaCreditada.getContaBancaria().getPk().getId().equalsIgnoreCase(((ContaBancariaModel) comboContaBancariaEstorno.getItemAt(i)).getPk().getId())) {
-                                    comboContaBancariaEstorno.setSelectedIndex(i);
-                                    break;
-                                }
-                            }
+                        campoIDContaCredito.setText(contaCreditada.getPk().getId());
+
+                        lblAgenciaCBC.setText(contaCreditada.getContaBancaria().getAgencia());
+                        lblCllienteCBC.setText(contaCreditada.getContaBancaria().getTitular());
+                        String siglaBanco = "";
+                        if (contaCreditada.getContaBancaria().getBanco().getSiglaBanco() != null && !contaCreditada.getContaBancaria().getBanco().getSiglaBanco().isEmpty()) {
+
+                            siglaBanco = " - " +  contaCreditada.getContaBancaria().getBanco().getSiglaBanco();
                         }
 
-                        jTAgencia.setText(contaCreditada.getContaBancaria().getAgencia());
-                        jTCliente.setText(contaCreditada.getContaBancaria().getTitular());
-                        jTBanco.setText(contaCreditada.getContaBancaria().getBanco().getCodigoBanco());
-                        jTDescricao.setText(contaCreditada.getDescricao());
+                        lblBancoCBC.setText(contaCreditada.getContaBancaria().getBanco().getCodigoBanco() + siglaBanco );
+                        lblDescricaoCBC.setText(contaCreditada.getDescricao());
+                        lblContaCBC.setText(contaCreditada.getContaBancaria().getConta());
+                        lblTipoOpBancariaCBC.setText(contaCreditada.getTipoOperacaoBancaria().getDescricao());
+                        valor = contaCreditada.getValor();
+                        lblValorCBC.setText(PempecParse.doubleToZero(valor));
+                        lblDataContabilCBC.setText(PempecParse.dateToString(contaCreditada.getDataContabil()));
+                        lblDataMovimentoCBC.setText(PempecParse.dateToString(contaCreditada.getDataMovimento()));
+                        lblDataRegistroCBC.setText(PempecParse.dateToString(contaCreditada.getDataRegistro()));
+
+                        if (contaCreditada != null && contaCreditada.getPk() != null && contaCreditada.getPk().getId() != null
+                                && (!contaCreditada.getPk().getId().isEmpty())) {
+                            botaoEstornarDebito.setEnabled(true);
+                        }
 
                     } else {
-                        
-                        
-                       comboContaBancariaEstorno.setSelectedIndex(0);
-                        jTAgencia.setText("");
-                        jTCliente.setText("");
-                        jTBanco.setText("");
-                        jTDescricao.setText("");
-                        
-                        
+
+                        this.botaoLimparDebitoActionPerformed(evt);
+                        exibeMensagemAviso("Dados inconsistentes. Estorno impossível.", "Estorno DEP BANCO");
+
                     }
 
                 }
@@ -1062,28 +1022,43 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
     }//GEN-LAST:event_botaoFecharDebitoActionPerformed
 
     private void botaoLimparDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparDebitoActionPerformed
-        comboTituloDebito.setSelectedItem(null);
-        comboContaBancariaEstorno.setSelectedIndex(0);
-        comboResponsavelDebito.setSelectedIndex(0);
+        comboTituloDebito.setSelectedIndex(0);
+        botaoEstornarDebito.setEnabled(false);
 
         labelTipoLancamentoDebito.setVisible(false);
-        jFTDataRegistro.setVisible(false);
-
-        jTObservacaoDebito.setText("");
         campoIDTesDebito.setText("");
-        jFTValorDebito.setText("0,00");
-        jTDescricaoDebito.setText("");
-        botaoAlterarDebito.setEnabled(false);
-        botaoEstornarDebito.setEnabled(false);
-//        botaoDebitar.setEnabled(true);
+        campoIDContaCredito.setText("");
+        lblValorTD.setText("0,00");
+        lblDescricaoTD.setText("");
+        lblDataContabilTD.setText("");
+        lblDataMovimentoTD.setText("");
+        lblDataRegistroTD.setText("");
+        lblResponsavelTD.setText("");
+        lblHistoricoTD.setText("");
+        lblObservacaoTD.setText("");
 
-        labelExportDebito.setVisible(false);
+        lblDescricaoCBC.setText("");
+        lblValorCBC.setText("0,00");
 
-        
-        jTAgencia.setText("");
-        jTBanco.setText("");
-        jTCliente.setText("");
-        jTDescricao.setText("");
+        lblAgenciaCBC.setText("");
+        lblBancoCBC.setText("");
+        lblCllienteCBC.setText("");
+        lblContaCBC.setText("");
+        lblDescricaoCBC.setText("");
+        lblTipoOpBancariaCBC.setText("");
+        lblValorCBC.setText("0.00");
+        lblDataContabilCBC.setText("");
+        lblDataMovimentoCBC.setText("");
+        lblDataRegistroCBC.setText("");
+
+        jFTDataPesquisarInicial.setEnabled(true);
+        jFTDataPesquisarFinal.setEnabled(true);
+        btnPesquisar.setEnabled(true);
+
+        comboTituloDebito.setEnabled(false);
+        lColecaoDebito = null;
+
+        this.repopularCombos();
 
 
     }//GEN-LAST:event_botaoLimparDebitoActionPerformed
@@ -1094,6 +1069,8 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
         if (comboTituloDebito.getSelectedItem() != null) {
             valorCombo = comboTituloDebito.getSelectedItem().toString();
         }
+
+        boolean isEstorno = false;
 
         if (valorCombo != null) {
 
@@ -1111,6 +1088,7 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
                 if (validaCamposDebitos()) {
 
                     TesourariaDebitoModel tab = new TesourariaDebitoModel();
+                    ContaBancariaCreditoModel cbc = new ContaBancariaCreditoModel();
 
                     OrganizacaoModel organizacaoModel = Controller.getOrganizacao();
 
@@ -1124,11 +1102,40 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
 
                     tab = tesourariaDebitoBO.consultarPorTemplate(tab);
 
+                    if (tab != null && tab.getPk() != null && tab.getPk().getId() != null) {
+
+                        cbc.setPk(new PKModel());
+
+                        cbc.getPk().setOrganizacao(organizacaoModel);
+
+                        cbc.setIdentificacao(valorCombo);
+
+                        cbc.getPk().setId(campoIDContaCredito.getText());
+
+                        cbc = contaBancariaCreditoBO.consultarPorTemplate(cbc);
+
+                        if (cbc != null && cbc.getPk() != null && cbc.getPk().getId() != null) {
+
+                            if (cbc.getValor() == tab.getValorNominal()) {
+
+                                isEstorno = true;
+
+                            }
+                        }
+
+                    } else {
+
+                        exibeMensagemAviso("Impossivel estornar.", "Erro no lançamento TD");
+                    }
+
                     // tab.setMovimentoDiarioModel(registroMovimento("Estornar", tab.getNumeroDocumento(), ((HistoricoModel) comboHistoricoDebito.getSelectedItem()).getDescricao() + " " + tab.getDescricao(), tab.getValorNominal(), "Estornado"));
                     tab.setMovimentoDiarioModel(registroMovimento("Estornar", tab.getNumeroDocumento(), tab.getNumeroDocumento() + " para " + tab.getDescricao(), tab.getValorNominal(), "Estornado"));
                     tab.getMovimentoDiarioModel().setObservacao("Lanc. Tesour. Debito Estornado ");
 
-                    tesourariaDebitoBO.excluir(tab);
+                    if (isEstorno) {
+
+                        tesourariaDebitoBO.excluirDepositoBanco(tab, cbc);
+                    }
 
                     this.botaoLimparDebitoActionPerformed(evt);
 
@@ -1161,100 +1168,8 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
         }
     }//GEN-LAST:event_botaoEstornarDebitoActionPerformed
 
-    private void botaoAlterarDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarDebitoActionPerformed
-        String valorCombo = null;
-
-        if (comboTituloDebito.getSelectedItem() != null) {
-            valorCombo = comboTituloDebito.getSelectedItem().toString();
-        }
-
-        if (valorCombo != null) {
-
-            try {
-
-                long action = Action.ALTERAR.getAction();
-
-                if (validaCamposDebitos()) {
-
-                    TesourariaDebitoModel tab = new TesourariaDebitoModel();
-
-                    OrganizacaoModel organizacaoModel = Controller.getOrganizacao();
-
-                    tab.setPk(new PKModel());
-
-                    tab.getPk().setOrganizacao(organizacaoModel);
-
-                    tab.setNumeroDocumento(valorCombo);
-
-                    tab.getPk().setId(campoIDTesDebito.getText());
-
-                    tab = tesourariaDebitoBO.consultarPorTemplate(tab);
-
-                    tab.setDescricao(jTDescricaoDebito.getText().toUpperCase());
-
-                    tab.setObservacao(jTObservacaoDebito.getText());
-
-                    tab.setTipoLancamento("D");
-
-                    tab.setUsuario(Controller.getUsuarioLogado());
-
-                    tab.setValorNominal(jFTValorDebito.getValue());
-
-                    if (jFTDataRegistro.getDate() != null) {
-                        tab.setDataRegistro(jFTDataRegistro.getDate());
-                    }
-
-                    if (jFTDataMovimentoDebito.getDate() != null) {
-                        tab.setDataMovimento(jFTDataMovimentoDebito.getDate());
-                    }
-
-                    if (jFTDataContabilDebito.getDate() != null) {
-                        tab.setDataContabil(jFTDataContabilDebito.getDate());
-                    }
-
-                    if (comboResponsavelDebito.getSelectedItem() != null && ((FuncionarioModel) comboResponsavelDebito.getSelectedItem()).getPk() != null) {
-                        tab.setResponsavel(new FuncionarioModel());
-                        tab.getResponsavel().setPk(new PKModel());
-                        tab.getResponsavel().getPk().setId(((FuncionarioModel) comboResponsavelDebito.getSelectedItem()).getPk().getId());
-                    }
-
-                    tab.setMovimentoDiarioModel(registroMovimento("Alterar", tab.getNumeroDocumento(), tab.getNumeroDocumento() + " para " + tab.getDescricao(), tab.getValorNominal(), "Alterado"));
-                    tesourariaDebitoBO.alterar(tab);
-
-                    this.botaoLimparDebitoActionPerformed(evt);
-
-                } else {
-
-                    exibeMensagemAviso("Campo(s) obrigatório(s).", null);
-
-                }
-
-            } catch (ApplicationException ex) {
-
-                tratamentoExcecao(ex);
-
-            } catch (final SystemException ex) {
-
-                final File file = PrintScreen.capture();
-
-                SwingUtilities.invokeLater(new Runnable() {
-                    public void run() {
-
-                        tratamentoExcecao(ex, file);
-
-                    }
-                });
-
-            }
-
-        } else {
-            exibeMensagemAviso("O Número do documento a debitar é obrigatório.", null);
-        }
-    }//GEN-LAST:event_botaoAlterarDebitoActionPerformed
-
     private void abaDebitosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_abaDebitosComponentShown
         //  botaoDebitar.setEnabled(true);
-        botaoAlterarDebito.setEnabled(false);
         botaoEstornarDebito.setEnabled(false);
     }//GEN-LAST:event_abaDebitosComponentShown
 
@@ -1276,14 +1191,8 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
 
                 habilitaCampos();
 
-                final EventList<TesourariaDebitoModel> lRegistrosDebitos = GlazedLists.eventList(lColecaoDebito);
+                comboTituloDebito.setModel(new javax.swing.DefaultComboBoxModel(lColecaoDebito.toArray()));
 
-                if (supportDebito != null && supportDebito.getItemList() != null && supportDebito.getComboBox() != null) {
-                    supportDebito.uninstall();
-                }
-                supportDebito = AutoCompleteSupport.install(comboTituloDebito, lRegistrosDebitos, new TesourariaDebitoTextFilterator());
-                supportDebito.setFilterMode(TextMatcherEditor.STARTS_WITH);
-                supportDebito.setStrict(false);
             } else {
 
                 exibeMensagemAviso("Lista vazia. Reveja o periodo.", null);
@@ -1434,7 +1343,6 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel abaConsulta;
     private javax.swing.JPanel abaDebito;
-    private javax.swing.JButton botaoAlterarDebito;
     protected javax.swing.JButton botaoDepositar;
     private javax.swing.JButton botaoEstornarDebito;
     private javax.swing.JButton botaoFechar;
@@ -1445,103 +1353,54 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
     private javax.swing.JTextField campoIDContaCredito;
     private javax.swing.JTextField campoIDTesDebito;
     private javax.swing.JComboBox comboContaBancaria;
-    private javax.swing.JComboBox comboContaBancariaEstorno;
     private javax.swing.JComboBox comboFuncionario;
-    private javax.swing.JComboBox comboResponsavelDebito;
     private javax.swing.JComboBox comboTituloDebito;
     private javax.swing.JButton jButton3;
-    private org.jdesktop.swingx.JXDatePicker jFTDataContabilDebito;
     private org.jdesktop.swingx.JXDatePicker jFTDataMovimento;
-    private org.jdesktop.swingx.JXDatePicker jFTDataMovimentoDebito;
     private org.jdesktop.swingx.JXDatePicker jFTDataPesquisarFinal;
     private org.jdesktop.swingx.JXDatePicker jFTDataPesquisarInicial;
-    private org.jdesktop.swingx.JXDatePicker jFTDataRegistro;
-    private br.com.pempec.componentes.JDoubleField jFTValorDebito;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private br.com.pempec.componentes.JDoubleField jSaldoTesouraria;
     private br.com.pempec.componentes.JDoubleField jSaldoTesourariaCheque;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTAgencia;
-    private javax.swing.JTextField jTBanco;
-    private javax.swing.JTextField jTCliente;
-    private javax.swing.JTextField jTDescricao;
-    private javax.swing.JTextField jTDescricaoDebito;
-    private javax.swing.JTextField jTObservacaoDebito;
     private br.com.pempec.componentes.JDoubleField jValorDeposito;
-    private javax.swing.JLabel labelDataEmissao1;
-    private javax.swing.JLabel labelDataEmissao2;
     private javax.swing.JLabel labelDataProtocolo;
-    private javax.swing.JLabel labelDataVencimento1;
-    private javax.swing.JLabel labelDataVencimento3;
-    private javax.swing.JLabel labelDescricao2;
-    private javax.swing.JLabel labelDescricao3;
-    private javax.swing.JLabel labelExportDebito;
     private javax.swing.JLabel labelNumeroDocumento1;
     private javax.swing.JLabel labelResponsavel;
     private javax.swing.JLabel labelTipoLancamentoDebito;
+    private javax.swing.JLabel lblAgenciaCBC;
+    private javax.swing.JLabel lblBancoCBC;
+    private javax.swing.JLabel lblCllienteCBC;
+    private javax.swing.JLabel lblContaCBC;
+    private javax.swing.JLabel lblDataContabilCBC;
+    private javax.swing.JLabel lblDataContabilTD;
+    private javax.swing.JLabel lblDataMovimentoCBC;
+    private javax.swing.JLabel lblDataMovimentoTD;
+    private javax.swing.JLabel lblDataRegistroCBC;
+    private javax.swing.JLabel lblDataRegistroTD;
+    private javax.swing.JLabel lblDescricaoCBC;
+    private javax.swing.JLabel lblDescricaoTD;
+    private javax.swing.JLabel lblHistoricoTD;
+    private javax.swing.JLabel lblObservacaoTD;
+    private javax.swing.JLabel lblResponsavelTD;
+    private javax.swing.JLabel lblTipoOpBancariaCBC;
+    private javax.swing.JLabel lblValorCBC;
+    private javax.swing.JLabel lblValorTD;
     private javax.swing.JTabbedPane panelCheques;
     // End of variables declaration//GEN-END:variables
 
     private Boolean validaCamposDebitos() {
-
-        if (jFTValorDebito.getValue() < 0.01) {
-            exibeMensagemAviso("Valor não pode ser inferior ou igual a R$0,00!", null);
-            jFTValorDebito.requestFocus();
-            return false;
-
-        }
-
-        if (comboResponsavelDebito.getSelectedIndex() == 0) {
-            comboResponsavelDebito.requestFocus();
-            return false;
-        }
-
-        if (jTDescricaoDebito.getText().isEmpty()) {
-            jTDescricaoDebito.requestFocus();
-            return false;
-        }
-
-        if (jFTDataContabilDebito.getDate() == null) {
-            jFTDataContabilDebito.requestFocus();
-            return false;
-        }
-
-        if (jFTDataMovimentoDebito.getDate() == null) {
-            jFTDataMovimentoDebito.requestFocus();
-            return false;
-        }
-
-        if (jFTDataMovimentoDebito.getDate() != null) {
-            Date dataInformada = jFTDataMovimentoDebito.getDate();
-            if (dataInformada.after(Controller.getDataServidorBD())) {
-                exibeMensagemAviso("A Data do Movimento não pode ser superior a HOJE.!", null);
-                jFTDataMovimentoDebito.requestFocus();
-                return false;
-            }
-        }
-
-        if (jFTDataContabilDebito.getDate() != null) {
-            Date dataInformada = jFTDataContabilDebito.getDate();
-            if (dataInformada.after(Controller.getDataServidorBD())) {
-                exibeMensagemAviso("A Data Contabil não pode ser superior a HOJE.!", null);
-                jFTDataContabilDebito.requestFocus();
-                return false;
-            }
-        }
 
         return true;
     }
@@ -1557,8 +1416,5 @@ public class TransfereTesourariaBanco extends FinanceInternalFrame implements IR
         comboTituloDebito.setEnabled(true);
 
     }
-
-    private AutoCompleteSupport supportDebito;
-    private AutoCompleteSupport supportCedente;
 
 }

@@ -78,7 +78,6 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
 
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getPk().getOrganizacao().getId()));
 
-
         return (ContaBancariaCreditoModel) criteria.uniqueResult();
 
     }
@@ -105,8 +104,13 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
         Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
                 ContaBancariaCreditoModel.class);
 
-        if (model.getPk().getId() != null) {
-            criteria.add(Restrictions.eq("pk.id", model.getPk().getId()));
+        if (model.getIdentificacao() != null) {
+            criteria.add(Restrictions.eq("identificacao", model.getIdentificacao()));
+        } else {
+            if (model.getPk().getId() != null) {
+                criteria.add(Restrictions.eq("pk.id", model.getPk().getId()));
+            }
+
         }
 
         criteria.setMaxResults(1);
@@ -119,12 +123,10 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
         criteria.setFetchMode("loteContabil", FetchMode.JOIN);
 
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getPk().getOrganizacao().getId()));
-        
-        
+
         Criteria subCriteria1 = criteria.createCriteria("contaBancaria", CriteriaSpecification.LEFT_JOIN);
 
         subCriteria1.setFetchMode("banco", FetchMode.JOIN);
-
 
         return (ContaBancariaCreditoModel) criteria.uniqueResult();
 
@@ -185,7 +187,6 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
 
         //Colocar depois
 //        criteria.add(Restrictions.isNotNull("contaBancariaCheque"));
-
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getPk().getOrganizacao().getId()));
 
         criteria.setFetchMode("contaBancaria", FetchMode.JOIN);
@@ -233,7 +234,6 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
         Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
                 ContaBancariaCreditoModel.class);
 
-
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getId()));
 
         criteria.addOrder(Order.desc("dataMovimento"));
@@ -264,9 +264,7 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
         Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
                 ContaBancariaCreditoModel.class);
 
-
         criteria.add(Restrictions.eq("tipoLancamento", tipo));
-
 
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getId()));
 
@@ -307,19 +305,14 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
         Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
                 ContaBancariaCreditoModel.class);
 
-
         criteria.add(Restrictions.eq("tipoLancamento", tipo));
 
-
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getId()));
-
-
 
         criteria.setFetchMode("contaBancaria", FetchMode.JOIN);
         criteria.setFetchMode("responsavel", FetchMode.JOIN);
         criteria.setFetchMode("tipoOperacaoBancaria", FetchMode.JOIN);
         criteria.setFetchMode("usuario", FetchMode.JOIN);
-
 
         criteria.addOrder(Order.desc("dataMovimento"));
 
@@ -467,7 +460,7 @@ public class ContaBancariaCreditoDAO implements ContaBancariaCreditoDAOIf {
         criteria.add(Restrictions.eq("dataRegistro", dataInicial));
 
         criteria.add(Restrictions.eq("pk.organizacao.id", model.getId()));
-        
+
         criteria.addOrder(Order.desc("dataMovimento"));
         criteria.addOrder(Order.asc("identificacao"));
 
