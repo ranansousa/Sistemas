@@ -28,7 +28,6 @@ import ca.odell.glazedlists.matchers.TextMatcherEditor;
 import ca.odell.glazedlists.swing.AutoCompleteSupport;
 import java.awt.Font;
 import java.awt.event.InputEvent;
-import java.awt.event.ItemEvent;
 import java.io.File;
 import java.util.Collection;
 import javax.swing.SwingUtilities;
