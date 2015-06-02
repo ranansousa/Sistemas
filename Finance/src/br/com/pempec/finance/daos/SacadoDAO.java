@@ -204,42 +204,7 @@ public class SacadoDAO implements SacadoDAOIf {
 
     }
 
-    @HibernateTransaction
-    public void excluir(SacadoModel model)
-            throws SystemException {
-
-        if (model.getEndereco() != null) {
-
-            EnderecoModel enderecoModel = model.getEndereco();
-
-            enderecoModel.getPk().setOrganizacao(model.getPk().getOrganizacao());
-
-            HibernateUtil.getCurrentSession().delete(enderecoModel);
-
-        }
-
-        if (model.getContato() != null) {
-
-            ContatoModel contatoModel = model.getContato();
-
-            contatoModel.getPk().setOrganizacao(model.getPk().getOrganizacao());
-
-            HibernateUtil.getCurrentSession().delete(contatoModel);
-
-        }
-
-        if (model.getMovimentoDiarioModel() != null
-                && !model.getMovimentoDiarioModel().getCodigo().isEmpty()) {
-
-            MovimentoDiarioModel mov = model.getMovimentoDiarioModel();
-            HibernateUtil.getCurrentSession().save(mov);
-        }
-
-        HibernateUtil.getCurrentSession().delete(model);
-        Repopulador.repopulador();
-
-    }
-
+    
     public SacadoModel consultarPorTemplate(SacadoModel model)
             throws SystemException {
 
@@ -313,4 +278,46 @@ public class SacadoDAO implements SacadoDAOIf {
         }
 
     }
+@HibernateTransaction
+    public void excluir(SacadoModel model)
+            throws SystemException {
+
+        if (model.getEndereco() != null) {
+
+            EnderecoModel enderecoModel = model.getEndereco();
+
+            enderecoModel.getPk().setOrganizacao(model.getPk().getOrganizacao());
+
+            HibernateUtil.getCurrentSession().delete(enderecoModel);
+
+        }
+
+        if (model.getContato() != null) {
+
+            ContatoModel contatoModel = model.getContato();
+
+            contatoModel.getPk().setOrganizacao(model.getPk().getOrganizacao());
+
+            HibernateUtil.getCurrentSession().delete(contatoModel);
+
+        }
+
+        if (model.getMovimentoDiarioModel() != null
+                && !model.getMovimentoDiarioModel().getCodigo().isEmpty()) {
+
+            MovimentoDiarioModel mov = model.getMovimentoDiarioModel();
+            HibernateUtil.getCurrentSession().save(mov);
+        }
+
+        HibernateUtil.getCurrentSession().delete(model);
+        Repopulador.repopulador();
+
+    }
+
+    
+    //alterado 020615
+
+
+
+
 }

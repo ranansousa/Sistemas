@@ -68,7 +68,6 @@ import br.com.pempec.finance.daosIf.UsuarioActionDAOIf;
 import br.com.pempec.finance.daosIf.UsuarioDAOIf;
 import br.com.pempec.finance.exceptions.SystemException;
 import br.com.pempec.finance.hibernate.HibernateInterceptorAnnotation;
-import br.com.pempec.finance.models.LoteRecebimentoTituloModel;
 
 public final class DAOFactory implements DAOFactoryIf {
 
@@ -86,15 +85,7 @@ public final class DAOFactory implements DAOFactoryIf {
         return factory;
     }
 
-    public ContaBancariaDAOIf getContaBancariaDAO() throws SystemException {
-        return (ContaBancariaDAO) TransactionClass.create(
-                ContaBancariaDAO.class, HibernateInterceptorAnnotation.class);
-    }
-
-    public BackupDAOIf getBackupDAO() throws SystemException {
-        return (BackupDAO) TransactionClass.create(
-                BackupDAO.class, HibernateInterceptorAnnotation.class);
-    }
+    
 
     public TipoNotaFiscalDAOIf getTipoNotaFiscalDAO() throws SystemException {
         return (TipoNotaFiscalDAO) TransactionClass.create(
@@ -406,4 +397,15 @@ public final class DAOFactory implements DAOFactoryIf {
         return (LoteRecebimentoTituloDAO) TransactionClass.create(
                 LoteRecebimentoTituloDAO.class, HibernateInterceptorAnnotation.class);
     }
+    
+    public ContaBancariaDAOIf getContaBancariaDAO() throws SystemException {
+        return (ContaBancariaDAO) TransactionClass.create(
+                ContaBancariaDAO.class, HibernateInterceptorAnnotation.class);
+    }
+    
+    public BackupDAOIf getBackupDAO() throws SystemException {
+        return (BackupDAO) TransactionClass.create(
+                BackupDAO.class, HibernateInterceptorAnnotation.class);
+    }
+    
 }
