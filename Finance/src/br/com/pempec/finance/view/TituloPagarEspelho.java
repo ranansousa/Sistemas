@@ -63,7 +63,6 @@ public class TituloPagarEspelho extends FinanceInternalFrame implements IRepopul
     public TituloPagarEspelho(TituloPagarModel tituloPagar) throws SystemException {
 
         initComponents();
-        
 
         this.tituloPagarModel = tituloPagar;
 
@@ -273,6 +272,9 @@ public class TituloPagarEspelho extends FinanceInternalFrame implements IRepopul
 
                     CedenteModel cedente = new CedenteModel();
                     String auxCdBancario = "NC";
+                    espelho.setCdBanco(auxCdBancario);
+                    espelho.setCdAgencia(auxCdBancario);
+                    espelho.setCdConta(auxCdBancario);
 
                     if (tituloPagarModel.getCedente() != null && tituloPagarModel.getCedente().getPk() != null && tituloPagarModel.getCedente().getPk().getId() != null
                             && (!tituloPagarModel.getCedente().getPk().getId().isEmpty())) {
@@ -283,17 +285,15 @@ public class TituloPagarEspelho extends FinanceInternalFrame implements IRepopul
 
                             espelho.setCedente(cedente.getNome());
                             espelho.setCpfCnpjCedente(cedente.getCpfCnpj());
-                            espelho.setCdBanco(cedente.getBanco().getCodigoBanco());
-                            espelho.setCdAgencia(cedente.getAgencia());
-                            espelho.setCdConta(cedente.getConta());
 
+                            if (cedente.getBanco() != null && cedente.getBanco().getId() != null && !cedente.getBanco().getId().isEmpty()) {
+
+                                espelho.setCdBanco(cedente.getBanco().getCodigoBanco());
+                                espelho.setCdAgencia(cedente.getAgencia());
+                                espelho.setCdConta(cedente.getConta());
+
+                            }
                         }
-
-                    } else {
-
-                        espelho.setCdBanco(auxCdBancario);
-                        espelho.setCdAgencia(auxCdBancario);
-                        espelho.setCdConta(auxCdBancario);
 
                     }
 
@@ -318,13 +318,29 @@ public class TituloPagarEspelho extends FinanceInternalFrame implements IRepopul
                     espelho.setCentroCusto(tituloPagarModel.getCentroCusto().getDescricao());
 
                     espelho.setSituacao(tituloPagarModel.getStatus().getDescricao());
+                    String auxCtaCredito = "NC";
+                    String auxCtaDebito = "NC";
+                    espelho.setContaContabilCredito(auxCtaCredito);
+                    espelho.setContaContabilDebito(auxCtaDebito);
 
                     if (tituloPagarModel.getContaContabilCredito() != null) {
-                        espelho.setContaContabilCredito(tituloPagarModel.getContaContabilCredito().getConta() + "-" + tituloPagarModel.getContaContabilCredito().getDigitoConta());
+
+                        if (tituloPagarModel.getContaContabilCredito().getConta() != null && tituloPagarModel.getContaContabilCredito().getDigitoConta() != null) {
+                            auxCtaCredito = tituloPagarModel.getContaContabilCredito().getConta() + " - " + tituloPagarModel.getContaContabilCredito().getDigitoConta();
+
+                            espelho.setContaContabilCredito(auxCtaCredito);
+                        }
+
                     }
 
                     if (tituloPagarModel.getContaContabilDebito() != null) {
-                        espelho.setContaContabilDebito(tituloPagarModel.getContaContabilDebito().getConta() + "-" + tituloPagarModel.getContaContabilDebito().getDigitoConta());
+
+                        if (tituloPagarModel.getContaContabilDebito().getConta() != null && tituloPagarModel.getContaContabilDebito().getDigitoConta() != null) {
+                            auxCtaCredito = tituloPagarModel.getContaContabilDebito().getConta() + " - " + tituloPagarModel.getContaContabilDebito().getDigitoConta();
+
+                            espelho.setContaContabilDebito(auxCtaCredito);
+                        }
+
                     }
 
                     if (tituloPagarModel.getLoteContabil() != null) {

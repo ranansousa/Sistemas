@@ -3136,58 +3136,27 @@ private void comboTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     botaoExcluir.setEnabled(false);
                     botaoReceber.setEnabled(true);
                     botaoImprimirEspelho.setEnabled(true);
-                    labelDataPagamento.setVisible(true);
+                    labelDataPagamento.setVisible(true);  
 
                 }
 
                 if (tab.getStatus().getPk().getId().equalsIgnoreCase(Constantes.STATUS_TITULO_PAGO)) {
 
-                    protegeAbaExcept(abaBasica, true, comboTitulo);
-                    protegeAba(abaComplementar, true);
-                    protegeAba(abaNf, true);
-                    protegeAba(abaHistoricos, true);
+                    protegeAbaExcept(abaBasica, false, comboTitulo);
+                    protegeAba(abaComplementar, false);
+                    protegeAba(abaNf, false);
+                    protegeAba(abaHistoricos, false);
                     labelDataPagamento.setVisible(true);
-                    botaoAlterar.setEnabled(true);
+                    botaoAlterar.setEnabled(false);
                     botaoExcluir.setEnabled(false);
                     botaoImprimirEspelho.setEnabled(true);
                     botaoReceber.setEnabled(false);
-
+                    
+                                       
 
                 }
 
-                /*
-                 if (tab.getStatus().getPk().getId().equalsIgnoreCase(Constantes.STATUS_TITULO_PARCIAL)) {
-
-                 protegeAbaExcept(abaBasica, false, comboTitulo);
-                 protegeAba(abaComplementar, true);
-                 protegeAba(abaNf, true);
-                 protegeAba(abaHistoricos, true);
-                 botaoAlterar.setEnabled(true);
-                 botaoExcluir.setEnabled(false);
-                 botaoReceber.setEnabled(true);
-                 botaoImprimirEspelho.setEnabled(true);
-                 labelDataPagamento.setVisible(true);
-
-                 }
-
-                 if (tab.getStatus().getPk().getId().equalsIgnoreCase(Constantes.STATUS_TITULO_PAGO)) {
-
-                 protegeAbaExcept(abaBasica, false, comboTitulo);
-                 protegeAba(abaComplementar, false);
-                 protegeAba(abaNf, false);
-                 protegeAba(abaHistoricos, false);
-                 labelDataPagamento.setVisible(true);
-                 botaoAlterar.setEnabled(false);
-                 botaoExcluir.setEnabled(false);
-                 botaoImprimirEspelho.setEnabled(true);
-                 botaoReceber.setEnabled(false);
-
-
-                 }
-
-
-                 */
-
+               
                 if (tab.getLoteContabil() != null && tab.getLoteContabil().getPk() != null) {
 
                     protegeAbaExcept(abaBasica, false, comboTitulo);
@@ -3620,10 +3589,14 @@ private void botaoImprimirEspelhoActionPerformed(java.awt.event.ActionEvent evt)
 
         tab = tituloReceberBO.consultarPorTemplate(tab);
 
-        if (espelho == null || espelho.isClosed()) {
+        if (espelho == null || espelho.isClosed() || !espelho.isVisible()) {
             espelho = new TituloReceberEspelho(tab);
             TelaPrincipal.desktopPane.add(espelho);
+            espelho.setVisible(true);
+            espelho.setPositionCenter();
             espelho.show();
+            
+            
         } else {
             espelho.setVisible(true);
             espelho.moveToFront();

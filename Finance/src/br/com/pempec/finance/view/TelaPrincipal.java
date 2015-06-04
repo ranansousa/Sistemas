@@ -7,7 +7,6 @@ import br.com.pempec.finance.utils.PrintScreen;
 import br.com.pempec.finance.utils.ResourcePropertiesLocator;
 import br.com.pempec.finance.utils.Tela;
 import br.com.pempec.finance.utils.UIManagerPut;
-import br.com.pempec.finance.utils.ValidaLicencaFinanceANALISE;
 import com.nilo.plaf.nimrod.NimRODLookAndFeel;
 import com.nilo.plaf.nimrod.NimRODTheme;
 import java.awt.Color;
@@ -1199,6 +1198,8 @@ public class TelaPrincipal extends FinanceFrame {
                 cadastroTipoCobranca = new CadastroTipoCobranca();
                 cadastroTipoCobranca.setTitle("Manutenção de Tipo Cobrança");
                 desktopPane.add(cadastroTipoCobranca);
+                cadastroTipoCobranca.setVisible(true);
+        cadastroTipoCobranca.setPositionCenter();
             } catch (final SystemException ex) {
 
                 final File file = PrintScreen.capture();
@@ -1273,10 +1274,10 @@ private void bancoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 
         try {
             cadastroBanco = new CadastroBanco();
-
             cadastroBanco.setTitle("Manutenção de Banco");
-
             desktopPane.add(cadastroBanco);
+             cadastroBanco.setVisible(true);
+        cadastroBanco.setPositionCenter();
 
         } catch (final SystemException ex) {
 
@@ -1338,6 +1339,8 @@ private void tipoSacadoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
             cadastroTipoSacado = new CadastroTipoSacado();
             cadastroTipoSacado.setTitle("Manutenção de Tipo Sacado");
             desktopPane.add(cadastroTipoSacado);
+            cadastroTipoSacado.setVisible(true);
+        cadastroTipoSacado.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1368,6 +1371,8 @@ private void tipoCedenteMenuItemActionPerformed(java.awt.event.ActionEvent evt) 
             cadastroTipoCedente = new CadastroTipoCedente();
             cadastroTipoCedente.setTitle("Manutenção de Tipo Cedente");
             desktopPane.add(cadastroTipoCedente);
+            cadastroTipoCedente.setVisible(true);
+        cadastroTipoCedente.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1460,6 +1465,8 @@ private void centroCustoMenuItemActionPerformed(java.awt.event.ActionEvent evt) 
             cadastroCentroCusto = new CadastroCentroCusto();
             cadastroCentroCusto.setTitle("Manutenção de Centro de Custos");
             desktopPane.add(cadastroCentroCusto);
+             cadastroCentroCusto.setVisible(true);
+        cadastroCentroCusto.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1490,7 +1497,6 @@ private void historicoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {/
             cadastroHistorico = new CadastroHistorico();
             cadastroHistorico.setTitle("Manutenção de Históricos");
             desktopPane.add(cadastroHistorico);
-
             cadastroHistorico.setVisible(true);
             cadastroHistorico.setPositionCenter();
 
@@ -1778,6 +1784,8 @@ private void funcionarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) 
             cadastroFuncionario = new CadastroFuncionario();
             cadastroFuncionario.setTitle("Manutenção de Colaboradores");
             desktopPane.add(cadastroFuncionario);
+            cadastroFuncionario.setVisible(true);
+        cadastroFuncionario.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1808,6 +1816,8 @@ private void tipoOperacaoBancariaMenuItemActionPerformed(java.awt.event.ActionEv
             cadastroTipoOperacaoBancaria = new CadastroTipoOperacaoBancaria();
             cadastroTipoOperacaoBancaria.setTitle("Manutenção de Operações Bancárias");
             desktopPane.add(cadastroTipoOperacaoBancaria);
+            cadastroTipoOperacaoBancaria.setVisible(true);
+        cadastroTipoOperacaoBancaria.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1846,6 +1856,8 @@ private void relatorioFluxoCaixaMenuItem(java.awt.event.ActionEvent evt) {//GEN-
             relatorioFluxoCaixa = new RelatorioFluxoCaixa();
             relatorioFluxoCaixa.setTitle("Relatório Fluxo de Caixa");
             desktopPane.add(relatorioFluxoCaixa);
+             relatorioFluxoCaixa.setVisible(true);
+        relatorioFluxoCaixa.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1876,6 +1888,8 @@ private void relatorioContasPagarMenuItem(java.awt.event.ActionEvent evt) {//GEN
             relatorioContasPagar = new RelatorioContasPagar();
             relatorioContasPagar.setTitle("Relatório Contas a Pagar");
             desktopPane.add(relatorioContasPagar);
+            relatorioContasPagar.setVisible(true);
+        relatorioContasPagar.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1907,6 +1921,8 @@ private void relatorioContasReceberMenuItem(java.awt.event.ActionEvent evt) {//G
             relatorioContasReceber = new RelatorioContasReceber();
             relatorioContasReceber.setTitle("Relatório Contas a Receber");
             desktopPane.add(relatorioContasReceber);
+            relatorioContasReceber.setVisible(true);
+        relatorioContasReceber.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1937,6 +1953,8 @@ private void relatorioExtratoBancarioMenuItem(java.awt.event.ActionEvent evt) {/
             relatorioExtratoBancario = new RelatorioExtratoBancario();
             relatorioExtratoBancario.setTitle("Relatório Extrato Bancário");
             desktopPane.add(relatorioExtratoBancario);
+            relatorioExtratoBancario.setVisible(true);
+        relatorioExtratoBancario.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -1967,6 +1985,8 @@ private void sobreMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GE
             aboutFinance = new AboutFinance();
             aboutFinance.setTitle("Sobre o Finance");
             desktopPane.add(aboutFinance);
+            aboutFinance.setVisible(true);
+        aboutFinance.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2025,6 +2045,8 @@ private void cidadeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GE
             cadastroCidade = new CadastroCidade();
             cadastroCidade.setTitle("Manutenção de Cidades");
             desktopPane.add(cadastroCidade);
+            cadastroCidade.setVisible(true);
+        cadastroCidade.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2055,6 +2077,8 @@ private void gerarChequesMenuItemActionPerformed(java.awt.event.ActionEvent evt)
             geradorCheque = new GeradorCheque();
             geradorCheque.setTitle("Manutenção de Cheques");
             desktopPane.add(geradorCheque);
+            geradorCheque.setVisible(true);
+        geradorCheque.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2086,6 +2110,8 @@ private void compensarChequeMenuItemActionPerformed(java.awt.event.ActionEvent e
             compensadorCheque = new CompensadorCheque();
             compensadorCheque.setTitle("Compensação de Cheques");
             desktopPane.add(compensadorCheque);
+            compensadorCheque.setVisible(true);
+        compensadorCheque.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2148,6 +2174,8 @@ private void cancelarBaixaTituloPagarMenuItemActionPerformed(java.awt.event.Acti
             excluirTituloPagarBaixa = new ExcluirTituloPagarBaixa();
             excluirTituloPagarBaixa.setTitle("Excluir Pagamentos de Títulos a Pagar");
             desktopPane.add(excluirTituloPagarBaixa);
+            excluirTituloPagarBaixa.setVisible(true);
+        excluirTituloPagarBaixa.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2178,6 +2206,8 @@ private void organizacaoMenuItemActionPerformed(java.awt.event.ActionEvent evt) 
             cadastroOrganizacao = new CadastroOrganizacao();
             cadastroOrganizacao.setTitle("Organização");
             desktopPane.add(cadastroOrganizacao);
+            cadastroOrganizacao.setVisible(true);
+        cadastroOrganizacao.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2299,6 +2329,8 @@ private void particionadorTituloPagarMenuItemActionPerformed(java.awt.event.Acti
             particionadorTituloPagar = new ParticionadorTituloPagar();
             particionadorTituloPagar.setTitle("Particionar Títulos");
             desktopPane.add(particionadorTituloPagar);
+            particionadorTituloPagar.setVisible(true);
+        particionadorTituloPagar.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2329,6 +2361,8 @@ private void lancamentoTesourariaMenuItem(java.awt.event.ActionEvent evt) {//GEN
             tesouraiaLancamento = new TesouraiaLancamento();
             tesouraiaLancamento.setTitle("Tesouraria - Lançamentos");
             desktopPane.add(tesouraiaLancamento);
+             tesouraiaLancamento.setVisible(true);
+        tesouraiaLancamento.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2359,6 +2393,8 @@ private void emitirReciboContaPagarMenuItemActionPerformed(java.awt.event.Action
             reciboContaPagar = new ReciboContaPagar();
             reciboContaPagar.setTitle("Recibo Contas a Pagar");
             desktopPane.add(reciboContaPagar);
+            reciboContaPagar.setVisible(true);
+        reciboContaPagar.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2388,6 +2424,8 @@ private void emitirReciboTesourariaDebitoMenuItemActionPerformed(java.awt.event.
             reciboTesourariaDespesa = new ReciboTesourariaDespesa();
             reciboTesourariaDespesa.setTitle("Emitir Recibo Débitos");
             desktopPane.add(reciboTesourariaDespesa);
+            reciboTesourariaDespesa.setVisible(true);
+        reciboTesourariaDespesa.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2418,6 +2456,8 @@ private void emitirReciboTesourariaCreditoMenuItemActionPerformed(java.awt.event
             reciboTesourariaReceita = new ReciboTesourariaReceita();
             reciboTesourariaReceita.setTitle("Emitir Recibo Créditos");
             desktopPane.add(reciboTesourariaReceita);
+            reciboTesourariaReceita.setVisible(true);
+        reciboTesourariaReceita.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2448,6 +2488,8 @@ private void emitirReciboCopiaChequeMenuItemActionPerformed(java.awt.event.Actio
             reciboCopiaCheque = new ReciboCopiaCheque();
             reciboCopiaCheque.setTitle("Emitir Cópia de Cheques");
             desktopPane.add(reciboCopiaCheque);
+             reciboCopiaCheque.setVisible(true);
+        reciboCopiaCheque.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2478,6 +2520,8 @@ private void relatorioDmsMenuItemActionPerformed(java.awt.event.ActionEvent evt)
             relatorioDMS = new RelatorioDMS();
             relatorioDMS.setTitle("Declaração Mensal de Serviços");
             desktopPane.add(relatorioDMS);
+            relatorioDMS.setVisible(true);
+        relatorioDMS.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2509,6 +2553,8 @@ private void relatorioMovimentoDiarioMenuItemActionPerformed(java.awt.event.Acti
             relatorioMovimentoDiario = new RelatorioMovimentoDiario();
             relatorioMovimentoDiario.setTitle("Relatório Movimento Diário");
             desktopPane.add(relatorioMovimentoDiario);
+            relatorioMovimentoDiario.setVisible(true);
+        relatorioMovimentoDiario.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2539,6 +2585,8 @@ private void impressaoChequeMenuItemActionPerformed(java.awt.event.ActionEvent e
             impressaoCheque = new ImpressaoCheque();
             impressaoCheque.setTitle("Imprimir Cheque");
             desktopPane.add(impressaoCheque);
+            impressaoCheque.setVisible(true);
+        impressaoCheque.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2599,6 +2647,8 @@ private void particionadorTituloReceberMenuItemActionPerformed(java.awt.event.Ac
             particionadorTituloReceber = new ParticionadorTituloReceber();
             particionadorTituloReceber.setTitle("Particionador de Título a Receber");
             desktopPane.add(particionadorTituloReceber);
+             particionadorTituloReceber.setVisible(true);
+        particionadorTituloReceber.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2630,6 +2680,8 @@ private void extratoTesourariaMenuItemActionPerformed(java.awt.event.ActionEvent
             extratoTesouraria = new ExtratoTesouraria();
             extratoTesouraria.setTitle("Extrato Tesouraria");
             desktopPane.add(extratoTesouraria);
+            extratoTesouraria.setVisible(true);
+        extratoTesouraria.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2660,6 +2712,8 @@ private void tipoNotaFiscalMenuItemActionPerformed(java.awt.event.ActionEvent ev
             cadastroTipoNotaFiscal = new CadastroTipoNotaFiscal();
             cadastroTipoNotaFiscal.setTitle("Tipo Nota Fiscal");
             desktopPane.add(cadastroTipoNotaFiscal);
+            cadastroTipoNotaFiscal.setVisible(true);
+        cadastroTipoNotaFiscal.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2691,6 +2745,8 @@ private void exportMegaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
                 exportacaoMegaContabil = new ExportacaoMegaContabil();
                 exportacaoMegaContabil.setTitle("Exportação Mega Contábil");
                 desktopPane.add(exportacaoMegaContabil);
+                exportacaoMegaContabil.setVisible(true);
+        exportacaoMegaContabil.setPositionCenter();
             } catch (final SystemException ex) {
 
                 final File file = PrintScreen.capture();
@@ -2725,6 +2781,8 @@ private void emitirReciboContaReceberMenuItemActionPerformed(java.awt.event.Acti
             reciboContaReceber = new ReciboContaReceber();
             reciboContaReceber.setTitle("Recibo Contas a Receber");
             desktopPane.add(reciboContaReceber);
+            reciboContaReceber.setVisible(true);
+        reciboContaReceber.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2755,6 +2813,8 @@ private void cancelaBaixaTituloReceberMenuItemActionPerformed(java.awt.event.Act
             excluirTituloReceberBaixa = new ExcluirTituloReceberBaixa();
             excluirTituloReceberBaixa.setTitle("Excluir Recebimento de Títulos");
             desktopPane.add(excluirTituloReceberBaixa);
+            excluirTituloReceberBaixa.setVisible(true);
+        excluirTituloReceberBaixa.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2786,6 +2846,8 @@ private void compensarMultiChequeMenuItemActionPerformed(java.awt.event.ActionEv
             compensadorMultiplosCheques = new CompensadorMultiplosCheques();
             compensadorMultiplosCheques.setTitle("Compensação de Vários Cheques");
             desktopPane.add(compensadorMultiplosCheques);
+            compensadorMultiplosCheques.setVisible(true);
+        compensadorMultiplosCheques.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2811,23 +2873,12 @@ private void compensarMultiChequeMenuItemActionPerformed(java.awt.event.ActionEv
 private void manutencaoBancoDadosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manutencaoBancoDadosMenuActionPerformed
 
     try {
-//        String senha = "raposavermelha";
-//        String senhaDigitada = "";
-//        senhaDigitada = JOptionPane.showInputDialog("Operação de alto risco para o sistema.\n Digite a senha para esta operação!");
-//
-//        if (senhaDigitada == null || senhaDigitada.isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "Uma senha deve ser digitada.");
-//            return;
-//        } else {
-//            if (!senhaDigitada.equalsIgnoreCase(senha)) {
-//                JOptionPane.showMessageDialog(null, "Senha Incorreta!");
-//                return;
-//            }
-//        }
-
+//       
         manutencaoBancoDados = new ManutencaoBancoDados();
         manutencaoBancoDados.setTitle("Manutencao Banco Dados");
         desktopPane.add(manutencaoBancoDados);
+        manutencaoBancoDados.setVisible(true);
+        manutencaoBancoDados.setPositionCenter();
     } catch (final SystemException ex) {
 
         final File file = PrintScreen.capture();
@@ -2854,6 +2905,8 @@ private void telaAvisosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
             telaAvisosTitulos = new TelaAvisosTitulos();
             //telaAvisosTitulos.setTitle("Compensação de Vários Cheques");
             desktopPane.add(telaAvisosTitulos);
+            telaAvisosTitulos.setVisible(true);
+        telaAvisosTitulos.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2880,6 +2933,8 @@ private void relatorioExportacaoMegaContabilMenuItemActionPerformed(java.awt.eve
         try {
             relatorioExportacaoMegaContabil = new RelatorioExportacaoMegaContabil();
             desktopPane.add(relatorioExportacaoMegaContabil);
+            relatorioExportacaoMegaContabil.setVisible(true);
+        relatorioExportacaoMegaContabil.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2907,6 +2962,8 @@ private void removExportMegaMenuItemActionPerformed(java.awt.event.ActionEvent e
         try {
             excluirExportacao = new ExcluirExportacaoMegaContabil();
             desktopPane.add(excluirExportacao);
+            excluirExportacao.setVisible(true);
+        excluirExportacao.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2933,6 +2990,8 @@ private void TelaChequesMenuItemActionPerformed(java.awt.event.ActionEvent evt) 
         try {
             telaChequesTesouraria = new TelaChequesTesouraria();
             desktopPane.add(telaChequesTesouraria);
+            telaChequesTesouraria.setVisible(true);
+        telaChequesTesouraria.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2960,6 +3019,8 @@ private void ListagemChequesMenuItemActionPerformed(java.awt.event.ActionEvent e
         try {
             listagemChequesTesouraria = new ListagemChequesTesouraria();
             desktopPane.add(listagemChequesTesouraria);
+            listagemChequesTesouraria.setVisible(true);
+        listagemChequesTesouraria.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -2987,6 +3048,8 @@ private void transfereBancoMenuItemActionPerformed(java.awt.event.ActionEvent ev
         try {
             transfereTesourariaBanco = new TransfereTesourariaBanco();
             desktopPane.add(transfereTesourariaBanco);
+            transfereTesourariaBanco.setVisible(true);
+        transfereTesourariaBanco.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3044,6 +3107,8 @@ private void saldoBancarioMenuItemActionPerformed(java.awt.event.ActionEvent evt
     try {
         contaBancariaSaldo = new ContaBancariaSaldo();
         desktopPane.add(contaBancariaSaldo);
+        contaBancariaSaldo.setVisible(true);
+        contaBancariaSaldo.setPositionCenter();
     } catch (final SystemException ex) {
 
         final File file = PrintScreen.capture();
@@ -3070,6 +3135,8 @@ private void configuracoesMenuItemActionPerformed(java.awt.event.ActionEvent evt
         try {
             cadastroConfiguracoes = new CadastroConfiguracoes();
             desktopPane.add(cadastroConfiguracoes);
+            cadastroConfiguracoes.setVisible(true);
+            cadastroConfiguracoes.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3098,6 +3165,8 @@ private void emailMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         try {
             telaEnvioEmail = new TelaEnvioEmail();
             desktopPane.add(telaEnvioEmail);
+            telaEnvioEmail.setVisible(true);
+            telaEnvioEmail.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3126,6 +3195,8 @@ private void reciboTransferenciaMenuItemrelatorioExtratoBancarioMenuItem(java.aw
         try {
             reciboTransferenciaBancaria = new ReciboTransferenciaBancaria();
             desktopPane.add(reciboTransferenciaBancaria);
+            reciboTransferenciaBancaria.setVisible(true);
+            reciboTransferenciaBancaria.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3154,6 +3225,8 @@ private void cancelamentoLoteMenuItemActionPerformed(java.awt.event.ActionEvent 
         try {
             excluirLotePagamento = new ExcluirLotePagamento();
             desktopPane.add(excluirLotePagamento);
+            excluirLotePagamento.setVisible(true);
+            excluirLotePagamento.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3210,6 +3283,8 @@ private void jMenuItemRLoteDepositoActionPerformed(java.awt.event.ActionEvent ev
         try {
             relatorioLoteDeposito = new RelatorioLoteDeposito();
             desktopPane.add(relatorioLoteDeposito);
+            relatorioLoteDeposito.setVisible(true);
+            relatorioLoteDeposito.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3237,6 +3312,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         try {
             relatorioLoteExportacao = new RelatorioLoteExportacao();
             desktopPane.add(relatorioLoteExportacao);
+            relatorioLoteExportacao.setVisible(true);
+            relatorioLoteExportacao.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3263,6 +3340,8 @@ private void relatorioLotePagamentoMenuItemActionPerformed(java.awt.event.Action
         try {
             relatorioLotePagamento = new RelatorioLotePagamento();
             desktopPane.add(relatorioLotePagamento);
+            relatorioLotePagamento.setVisible(true);
+            relatorioLotePagamento.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3291,6 +3370,8 @@ private void jMenuItemTransfereBancoTesourariaActionPerformed(java.awt.event.Act
         try {
             transfereBancoTesouraria = new TransfereBancoTesouraria();
             desktopPane.add(transfereBancoTesouraria);
+            transfereBancoTesouraria.setVisible(true);
+            transfereBancoTesouraria.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3319,6 +3400,8 @@ private void impressaoMultiplosChequeMenuItemActionPerformed(java.awt.event.Acti
             impressaoMultiplosCheque = new ImpressaoMultiplosCheque();
             impressaoMultiplosCheque.setTitle("Imprimir Mult Cheque");
             desktopPane.add(impressaoMultiplosCheque);
+            impressaoMultiplosCheque.setVisible(true);
+            impressaoMultiplosCheque.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3349,6 +3432,8 @@ private void contaContabilMenuItemhistoricoMenuItemActionPerformed(java.awt.even
             cadastroContaContabil = new CadastroContaContabil();
             cadastroContaContabil.setTitle("Conta Contabil");
             desktopPane.add(cadastroContaContabil);
+            cadastroContaContabil.setVisible(true);
+            cadastroContaContabil.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3378,6 +3463,8 @@ private void impressaoMultiplosRecibosMenuItemActionPerformed(java.awt.event.Act
         try {
             impressaoMultiplosRecibos = new ImpressaoMultiplosRecibos();
             desktopPane.add(impressaoMultiplosRecibos);
+            impressaoMultiplosRecibos.setVisible(true);
+            impressaoMultiplosRecibos.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3490,6 +3577,8 @@ private void cartaoCreditoMenuItemActionPerformed(java.awt.event.ActionEvent evt
         try {
             cadastroCartaoCredito = new CadastroCartaoCredito();
             desktopPane.add(cadastroCartaoCredito);
+            cadastroCartaoCredito.setVisible(true);
+            cadastroCartaoCredito.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3517,6 +3606,8 @@ private void telaCartaoCreditoMenuItemActionPerformed(java.awt.event.ActionEvent
         try {
             telaCartaoCredito = new TelaCartaoCredito();
             desktopPane.add(telaCartaoCredito);
+            telaCartaoCredito.setVisible(true);
+            telaCartaoCredito.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3569,6 +3660,8 @@ private void emitirChequeAvulsoMenuItemActionPerformed(java.awt.event.ActionEven
             impressaoChequeAvulso = new ImpressaoChequeAvulso();
             impressaoChequeAvulso.setTitle("Imprimir Cheque Avulso");
             desktopPane.add(impressaoChequeAvulso);
+            impressaoChequeAvulso.setVisible(true);
+            impressaoChequeAvulso.setPositionCenter();
         } catch (final SystemException ex) {
 
             final File file = PrintScreen.capture();
@@ -3629,6 +3722,8 @@ private void jrMenuItemRelacaoSacadosActionPerformed(java.awt.event.ActionEvent 
             relacaoSacados = new RelacaoSacados();
             relacaoSacados.setTitle("Listagem Sacados");
             desktopPane.add(relacaoSacados);
+            relacaoSacados.setVisible(true);
+            relacaoSacados.setPositionCenter();
         } catch (final Exception ex) {
 
             final File file = PrintScreen.capture();
@@ -3659,6 +3754,8 @@ private void jrMenuItemRelacaoCedentesActionPerformed(java.awt.event.ActionEvent
             relacaoCedentes = new RelacaoCedentes();
             relacaoCedentes.setTitle("Listagem Cedentes");
             desktopPane.add(relacaoCedentes);
+            relacaoCedentes.setVisible(true);
+            relacaoCedentes.setPositionCenter();
         } catch (final Exception ex) {
 
             final File file = PrintScreen.capture();

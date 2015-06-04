@@ -217,6 +217,7 @@ public class TituloReceberEspelho extends FinanceInternalFrame implements IRepop
 
     private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
         setVisible(false);
+        
     }//GEN-LAST:event_botaoFecharActionPerformed
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
