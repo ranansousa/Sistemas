@@ -291,6 +291,8 @@ public class ListagemTitulosReceber extends FinanceInternalFrame implements IRep
                 if (coll.size() > 1) {
                     CadastroTituloReceberBaixaLote lote = new CadastroTituloReceberBaixaLote(coll, sacado);
                     TelaPrincipal.desktopPane.add(lote);
+                    lote.setPositionCenter();
+                    lote.show();
                     lote.show();
                 } else {
                     exibeMensagemAviso("Para pagto em lote é preciso selecionar mais de um titulo.", null);

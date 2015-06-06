@@ -183,11 +183,10 @@ public class CadastroTituloReceberBaixaLoteFPInternet extends FinanceInternalFra
         this.baixa = baixa;
 
         this.titulo = titulo;
-        
 
         this.formaPagamento = formaPagamento;
 
-        if (sacadoModel != null && sacadoModel.getPk() !=null) {
+        if (sacadoModel != null && sacadoModel.getPk() != null) {
             SacadoModel sacado = sacadoModel;
             sacado.setAgencia(sacadoModel.getAgencia());
             sacado.setConta(sacadoModel.getConta());
@@ -205,7 +204,11 @@ public class CadastroTituloReceberBaixaLoteFPInternet extends FinanceInternalFra
             jFTDataOperacao.setDate(baixa.jFTDataPagamento.getDate());
         }
 
-        String detalhe = "RCBTO " + titulo.getParcela() + " TÍT. " + titulo.getNumeroDocumento() + " " + titulo.getDescricao();
+        String detalhe = "";
+        if (titulo != null && titulo.getParcela() != null && titulo.getNumeroDocumento() != null) {
+
+            detalhe = "RCBTO " + titulo.getParcela() + " TÍT. " + titulo.getNumeroDocumento() + " " + titulo.getDescricao();
+        }
 
         if (detalhe.length() > 60) {
 
@@ -402,7 +405,7 @@ public class CadastroTituloReceberBaixaLoteFPInternet extends FinanceInternalFra
         jFTValorOperacao.setText("0,00");
         jTDetalhamento.setText("");
         comboContaBancaria.setSelectedIndex(0);
-        comboTipoOperacaoBancaria.setSelectedIndex(0); 
+        comboTipoOperacaoBancaria.setSelectedIndex(0);
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
@@ -479,7 +482,6 @@ public class CadastroTituloReceberBaixaLoteFPInternet extends FinanceInternalFra
             }
 
         }
-
 
     }
 

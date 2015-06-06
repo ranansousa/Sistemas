@@ -87,8 +87,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
 
         jTNumeroLote.setText(PempecUtil.geraNumeroLote());
 
-
-
     }
 
     private void populaTela() {
@@ -468,7 +466,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
 
         try {
 
-
             switch (tela) {
 
                 case TELA_PARAMETROS_FORMAS_DE_PAGAMENTOS:
@@ -527,7 +524,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                     lColecaoResponsavel = new ArrayList<FuncionarioModel>();
 
                     //forma pagamento
-
                     formaPagamentoModel = new FormaPagamentoModel();
                     formaPagamentoModel.setDescricao(" -> Selecione <- ");
                     lColecaoFormaPagamento.add(formaPagamentoModel);
@@ -535,7 +531,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                     comboFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel(lColecaoFormaPagamento.toArray()));
 
                     //Responsavel
-
                     funcionarioModel = new FuncionarioModel();
                     funcionarioModel.setNome(" -> Selecione <- ");
                     lColecaoResponsavel.add(funcionarioModel);
@@ -563,7 +558,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
             });
 
         }
-
 
     }
 
@@ -637,13 +631,11 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
 
         }
 
-
         return true;
     }
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
 
-        
         try {
 
             if (validaCampos()) {
@@ -674,7 +666,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                         }
                     }
 
-
                     lote = new LoteRecebimentoTituloModel();
                     lote.setPk(new PKModel());
                     lote.getPk().setOrganizacao(Controller.getOrganizacao());
@@ -685,7 +676,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                     lote.setQtdTituloReceber(lTitulosPeriodo.size()); //verificar
                     lote.setLote(jTNumeroLote.getText());
                     lote.setValor(valorTotal);
-
 
                     if (auxFormasPagamento != null && !auxFormasPagamento.isEmpty()) {
                         lote.setFormaPagamentoModel(auxFormasPagamento.get(0).getForma());
@@ -703,12 +693,10 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
 
                     }
 
-
                 }
 
                 Collection<TituloReceberModel> collReceber = new ArrayList<TituloReceberModel>();
                 Collection<TituloReceberBaixaModel> collReceberBaixa = new ArrayList<TituloReceberBaixaModel>();
-
 
                 TipoStatusModel status = new TipoStatusModel();
                 status.setPk(new PKModel());
@@ -776,17 +764,14 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                             if (chequeRecebido.getBanco() != null && chequeRecebido.getBanco().getId() != null && !chequeRecebido.getBanco().getId().isEmpty()) {
 
                                 lote.setBanco(chequeRecebido.getBanco());
-                                
-                            }
 
+                            }
 
                             if (chequeRecebido.getConta() != null) {
 
                                 lote.setNumeroCheque(chequeRecebido.getNumeroCheque());
                                 lote.setConta(chequeRecebido.getConta());
                                 lote.setAgencia(chequeRecebido.getAgencia());
-                                
-
 
                             }
                         }
@@ -811,8 +796,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                 }
 
                 tituloReceberBaixaBO.salvarLote(lote, collReceberBaixa, collReceber);
-                
-
 
                 panelFormato.setVisible(true);
                 botaoImprimir.setEnabled(true);
@@ -905,7 +888,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
 
             tituloReceberBaixaFormaPagamentoModel.getPk().setId(PempecKeyGenerator.generateKey());
 
-
             //Tratamento de Nulidade.
             //Tratamento tbm da opção Selecione
             if (validarCombos("formaPagamento")) {
@@ -913,7 +895,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
             }
 
             tituloReceberBaixaFormaPagamentoModel.setValor(jFTValorFormaPagamento.getValue());
-
 
             if (formaPagamento.equals(Constantes.FORMA_PAGAMENTO_CHEQUE)) {
 
@@ -923,13 +904,14 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                         baixaFPCheque = new CadastroTituloReceberBaixaLoteFPCheque(this, tituloReceberBaixaFormaPagamentoModel, sacado);
 
                         TelaPrincipal.desktopPane.add(baixaFPCheque);
-                        baixaFPCheque.show();
+                        baixaFPCheque.setVisible(true);
+                            baixaFPCheque.setPositionCenter();
+                            baixaFPCheque.show();
                     } else {
                         baixaFPCheque.setVisible(true);
                         baixaFPCheque.moveToFront();
                         baixaFPCheque.requestFocus();
                     }
-
 
                 } catch (final SystemException ex) {
 
@@ -952,15 +934,16 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                     try {
 
                         if (baixaFPInternet == null || baixaFPInternet.isClosed()) {
-                            baixaFPInternet = new CadastroTituloReceberBaixaLoteFPInternet(this, tituloReceberBaixaFormaPagamentoModel, sacado);                                                        
+                            baixaFPInternet = new CadastroTituloReceberBaixaLoteFPInternet(this, tituloReceberBaixaFormaPagamentoModel, sacado);
                             TelaPrincipal.desktopPane.add(baixaFPInternet);
+                            baixaFPInternet.setVisible(true);
+                            baixaFPInternet.setPositionCenter();
                             baixaFPInternet.show();
                         } else {
                             baixaFPInternet.setVisible(true);
                             baixaFPInternet.moveToFront();
                             baixaFPInternet.requestFocus();
                         }
-
 
                     } catch (final SystemException ex) {
 
@@ -977,7 +960,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                     }
 
                 } else {
-
 
                     if (auxFormasPagamento != null && auxFormasPagamento.isEmpty()) {
 
@@ -1023,7 +1005,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
 //                            });
 //
 //                        }
-
                         auxFormasPagamento.add(tituloReceberBaixaFormaPagamentoModel);
 
                         this.preencheTabelaFormaPagamento();
@@ -1054,7 +1035,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
             String formaPagamento = ((FormaPagamentoModel) comboFormaPagamento.getSelectedItem()).getPk().getId();
 
             if (formaPagamento.equals(Constantes.FORMA_PAGAMENTO_CHEQUE) || formaPagamento.equals(Constantes.FORMA_PAGAMENTO_INTERNET)) {
-
 
                 labelValorPagar2.setVisible(false);
                 jFTValorFormaPagamento.setVisible(false);
@@ -1118,9 +1098,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
                 collRel.add(bean);
 
             }
-            
-            
-            
 
             String texto = "Autorizamos a V.Sas. resgatarem o(s) título(s) acima relacionado(s), " + collRel.size()
                     + " BOLETO(S) BANCÁRIO(S) de nossa responsabilidade levando a débito de nossa conta corrente, o valor de R$ " + PempecParse.doubleToZero(jFTValorTotal.getValue())
@@ -1198,7 +1175,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
             jFTDataPagamento.requestFocus();
             return false;
         }
-
 
         //Levantar as validações
         if (comboFormaPagamento.getSelectedIndex() == 0) {
@@ -1281,8 +1257,6 @@ public class CadastroTituloReceberBaixaLote extends FinanceInternalFrame impleme
             this.limparCamposFormaPagamento();
 
         }
-
-
 
     }
 

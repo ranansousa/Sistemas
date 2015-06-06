@@ -321,10 +321,11 @@ public class TelaTituloReceber extends FinanceInternalFrame implements IRepopula
                     return;
                 }
 
-                
-                ListagemTitulosReceber listagem = new ListagemTitulosReceber(collTitulos,sacado);
+                ListagemTitulosReceber listagem = new ListagemTitulosReceber(collTitulos, sacado);
 
                 TelaPrincipal.desktopPane.add(listagem);
+                listagem.setVisible(true);
+                listagem.setPositionCenter();
                 listagem.show();
 
             } catch (ApplicationException ex) {
