@@ -10,6 +10,7 @@ import br.com.pempec.finance.models.PlanoContasMegaContabil;
 import br.com.pempec.finance.utils.Controller;
 import br.com.pempec.finance.utils.FinanceInternalFrame;
 import br.com.pempec.finance.utils.IRepopulador;
+import br.com.pempec.finance.utils.PempecKeyGenerator;
 import br.com.pempec.finance.utils.PempecParse;
 import br.com.pempec.finance.utils.PempecUtil;
 import br.com.pempec.finance.utils.PrintScreen;
@@ -50,7 +51,7 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
             lblFinance.setText("FINANCE : " + contaContabilBO.getQtdRegistros(organizacaoModel) + " contas");
 
         } catch (ApplicationException ex) {
-            
+
             throw new ApplicationException(ex.getMessage());
         }
 
@@ -83,7 +84,7 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setTitle("PEMPEC ENTERPRISE - Finance - Sincronizar MegaContábil");
+        setTitle("PEMPEC ENTERPRISE - Finance - Sincronizar Contas Contabeis");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255)));
 
@@ -170,7 +171,7 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
                             .addComponent(jBProcessandoImg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jlbSistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblFinance, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,15 +202,15 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +251,8 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
 
         contaContabil.setPk(new PKModel());
         //contaContabil.getPk().setId(tratamentoIDMega(planoContas.getId()));
-        contaContabil.getPk().setId(Controller.tratamentoIDMega(planoContas.getId()));
+       // contaContabil.getPk().setId( Controller.tratamentoIDMega(planoContas.getId())); 18/06
+        contaContabil.getPk().setId(PempecKeyGenerator.generateKey());
 
         contaContabil.getPk().setOrganizacao(organizacaoModel);
 
@@ -306,6 +308,9 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
                     boolean existe = false;
 
                     ContaContabilModel aux = null;
+                    
+                    int contInsert=0;
+                    int contUpdate=0;
 
                     for (PlanoContasMegaContabil planoContasMegaContabil : collPlanos) {
 
@@ -319,12 +324,14 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
                         planoContasMegaContabil.setOrdemDIPJ(0);
 
                         planoContasMegaContabil.setRelacionamento(0);
+                        String contaMega = PempecUtil.somenteNumero(planoContasMegaContabil.getConta().trim());
+                        String cReduzidaMega = PempecUtil.somenteNumero(planoContasMegaContabil.getContaReduzida().trim());
 
-                        String conta = PempecUtil.somenteNumero(planoContasMegaContabil.getConta().trim());
-                        String cReduzida = PempecUtil.somenteNumero(planoContasMegaContabil.getContaReduzida().trim());
+                        String conta = contaMega.replace(" ", "");
+                        String cReduzida = cReduzidaMega.replace(" ", "");
 
                         existe = false;
-
+                        System.out.println("  ");
                         for (ContaContabilModel contaContabil : collContaContabil) {
 
                             if ((cReduzida != null
@@ -337,21 +344,27 @@ public class TelaSincronizarMegaContabil extends FinanceInternalFrame implements
                                 existe = true;
 
                                 aux = contaContabil;
+                                System.out.println("MEGA  " + planoContasMegaContabil.getConta() + "    " + planoContasMegaContabil.getDescricao());
+                                System.out.println("FNC   " + contaContabil.getConta() + "    " + contaContabil.getDescricao());
+                                System.out.println("  ");
 
                                 break;
                             }
                         }
 
                         if (existe) {
+                            
+                            contInsert++;
                             collContaContabilUpdate.add(updateForPlanoContas(planoContasMegaContabil, aux));
                         } else {
+                            contUpdate++;
                             //System.out.println("'" + planoContasMegaContabil.getId() + "',");
                             addContaContabil(collContaContabilInsert, planoContasMegaContabil);
                         }
 
                     }
 
-                    new MovimentoDiarioBO().inserir(registroMovimento("Sincronize MegaContabil", "Sincronizar MegaContabil", "Sincronizar MegaContabil - INSERT", null, "Sincronizado"));
+                    new MovimentoDiarioBO().inserir(registroMovimento("Sincronize MegaContabil", "Sincronizar MegaContabil", "Sincronizar MegaContabil - INSERT.  >>  " + contInsert + " inseridos e " + contUpdate + " atualizadas." , null, "Sincronizado"));
 
                     contaContabilBO.sincronizeMegaContabil(collContaContabilInsert, collContaContabilUpdate);
 
