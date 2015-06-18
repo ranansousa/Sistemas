@@ -224,9 +224,19 @@ public class ContaBancariaChequeDAO implements ContaBancariaChequeDAOIf {
         Criteria criteria = HibernateUtil.getCurrentSession().createCriteria(
                 ContaBancariaChequeModel.class);
 
+        if (model.getContaBancaria() != null 
+                && model.getContaBancaria().getPk() !=null 
+                && model.getContaBancaria().getPk().getId() !=null 
+                && !model.getContaBancaria().getPk().getId().isEmpty() ) {
+            
+            criteria.add(Restrictions.eq("contaBancaria.pk.id", model.getContaBancaria().getPk().getId()));
+        }
+        
+        
         if (model.getNumeroCheque() != null && !model.getNumeroCheque().isEmpty()) {
             criteria.add(Restrictions.eq("numeroCheque", model.getNumeroCheque()));
         }
+        
 
         criteria.setMaxResults(1);
 
@@ -254,6 +264,15 @@ public class ContaBancariaChequeDAO implements ContaBancariaChequeDAOIf {
             criteria.add(Restrictions.like("numeroCheque", model.getNumeroCheque(),
                     MatchMode.START));
         }
+        
+        if (model.getContaBancaria() != null 
+                && model.getContaBancaria().getPk() !=null 
+                && model.getContaBancaria().getPk().getId() !=null 
+                && !model.getContaBancaria().getPk().getId().isEmpty() ) {
+            
+            criteria.add(Restrictions.eq("contaBancaria.pk.id", model.getContaBancaria().getPk().getId()));
+        }
+        
 
         criteria.setMaxResults(1);
 

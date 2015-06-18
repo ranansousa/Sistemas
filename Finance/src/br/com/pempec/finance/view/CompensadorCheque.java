@@ -269,7 +269,7 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -284,8 +284,8 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(botaoEstorno, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(botaoLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                        .addComponent(botaoFechar, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                        .addComponent(botaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(botaoCompensar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -304,22 +304,22 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
         campoCodigoCompensa.setEditable(false);
 
         labelValorCheque.setBackground(new java.awt.Color(222, 218, 210));
-        labelValorCheque.setFont(new java.awt.Font("Arial", 1, 10));
+        labelValorCheque.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelValorCheque.setForeground(new java.awt.Color(0, 153, 153));
-        labelValorCheque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Valor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelValorCheque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Valor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelObservacao.setText("Observação");
 
         jLabel10.setText("Conta Bancária");
 
-        comboContaBancariaCompensa.setFont(new java.awt.Font("Arial", 0, 10));
+        comboContaBancariaCompensa.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         comboContaBancariaCompensa.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboContaBancariaCompensaItemStateChanged(evt);
             }
         });
 
-        comboChequeCompensa.setFont(new java.awt.Font("Arial", 0, 10));
+        comboChequeCompensa.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         comboChequeCompensa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboChequeCompensaActionPerformed(evt);
@@ -327,38 +327,38 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
         });
 
         labelDataGeracao.setBackground(new java.awt.Color(222, 218, 210));
-        labelDataGeracao.setFont(new java.awt.Font("Arial", 1, 10));
+        labelDataGeracao.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelDataGeracao.setForeground(new java.awt.Color(0, 153, 153));
-        labelDataGeracao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelDataGeracao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelEmissao.setBackground(new java.awt.Color(222, 218, 210));
-        labelEmissao.setFont(new java.awt.Font("Arial", 1, 10));
+        labelEmissao.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelEmissao.setForeground(new java.awt.Color(0, 153, 153));
-        labelEmissao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Emissão", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelEmissao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Emissão", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelStatus.setBackground(new java.awt.Color(222, 218, 210));
-        labelStatus.setFont(new java.awt.Font("Arial", 1, 10));
+        labelStatus.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelStatus.setForeground(new java.awt.Color(0, 153, 153));
         labelStatus.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelStatus.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelStatus.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         jLabel7.setText("Responsável");
 
-        comboResponsavelCompensa.setFont(new java.awt.Font("Arial", 0, 10));
+        comboResponsavelCompensa.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
         labelPortador.setBackground(new java.awt.Color(222, 218, 210));
-        labelPortador.setFont(new java.awt.Font("Arial", 1, 10));
+        labelPortador.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelPortador.setForeground(new java.awt.Color(0, 153, 153));
-        labelPortador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Portador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelPortador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Portador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelDataVencimento.setText("Data");
 
         labelVencimento.setBackground(new java.awt.Color(222, 218, 210));
-        labelVencimento.setFont(new java.awt.Font("Arial", 1, 10));
+        labelVencimento.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelVencimento.setForeground(new java.awt.Color(0, 153, 153));
-        labelVencimento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vencimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelVencimento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vencimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
-        jTObservacaoCompensa.setFont(new java.awt.Font("Arial", 0, 10));
+        jTObservacaoCompensa.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jScrollPane1.setViewportView(jTObservacaoCompensa);
 
         javax.swing.GroupLayout abaCompensarChequeLayout = new javax.swing.GroupLayout(abaCompensarCheque);
@@ -368,35 +368,26 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
             .addGroup(abaCompensarChequeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(comboContaBancariaCompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(abaCompensarChequeLayout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboChequeCompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelCheque)))
-                    .addGroup(abaCompensarChequeLayout.createSequentialGroup()
-                        .addComponent(labelObservacao)
-                        .addGap(325, 325, 325))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaCompensarChequeLayout.createSequentialGroup()
                         .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelPortador, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                            .addComponent(labelPortador, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, abaCompensarChequeLayout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaCompensarChequeLayout.createSequentialGroup()
-                                        .addComponent(jFTDataChequeCompensado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(campoCodigoCompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(abaCompensarChequeLayout.createSequentialGroup()
-                                        .addComponent(labelDataVencimento)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, abaCompensarChequeLayout.createSequentialGroup()
-                                .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel7)
-                                    .addComponent(comboResponsavelCompensa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(166, 166, 166))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+                                .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, abaCompensarChequeLayout.createSequentialGroup()
+                                        .addGap(172, 172, 172)
+                                        .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaCompensarChequeLayout.createSequentialGroup()
+                                                .addComponent(jFTDataChequeCompensado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(campoCodigoCompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(abaCompensarChequeLayout.createSequentialGroup()
+                                                .addComponent(labelDataVencimento)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel7)
+                                        .addComponent(comboResponsavelCompensa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGap(18, 18, 18)
                         .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -408,7 +399,18 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
                                 .addGroup(abaCompensarChequeLayout.createSequentialGroup()
                                     .addComponent(labelEmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelValorCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(labelValorCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(abaCompensarChequeLayout.createSequentialGroup()
+                        .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(comboContaBancariaCompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(abaCompensarChequeLayout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboChequeCompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelCheque)))
+                            .addComponent(labelObservacao))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addContainerGap())
         );
         abaCompensarChequeLayout.setVerticalGroup(
@@ -450,7 +452,6 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
                         .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelValorCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelEmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(abaCompensarChequeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPortador, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -476,71 +477,71 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
         campoCodigoChequeEstorno.setEditable(false);
 
         labelValorChequeEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelValorChequeEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelValorChequeEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelValorChequeEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelValorChequeEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Valor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelValorChequeEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Valor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         jLabel11.setText("Conta Bancária");
 
         labelDataGeracaoEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelDataGeracaoEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelDataGeracaoEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelDataGeracaoEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelDataGeracaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelDataGeracaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelEmissaoEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelEmissaoEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelEmissaoEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelEmissaoEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelEmissaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Emissão", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelEmissaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Emissão", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelStatusEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelStatusEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelStatusEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelStatusEstorno.setForeground(new java.awt.Color(0, 153, 153));
         labelStatusEstorno.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelStatusEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelStatusEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelPortadorEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelPortadorEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelPortadorEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelPortadorEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelPortadorEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Portador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelPortadorEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Portador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelCompensadoEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelCompensadoEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelCompensadoEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelCompensadoEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelCompensadoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Compensado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelCompensadoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Compensado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelResponsavelEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelResponsavelEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelResponsavelEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelResponsavelEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelResponsavelEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelResponsavelEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelDataRegistroEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelDataRegistroEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelDataRegistroEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelDataRegistroEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelDataRegistroEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelDataRegistroEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelTipoOperacaoEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelTipoOperacaoEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelTipoOperacaoEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelTipoOperacaoEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelTipoOperacaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo OPeração", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelTipoOperacaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo OPeração", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelUsuarioEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelUsuarioEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelUsuarioEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelUsuarioEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelUsuarioEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelUsuarioEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelTituloPagarEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelTituloPagarEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelTituloPagarEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelTituloPagarEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelTituloPagarEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Número Documento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelTituloPagarEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Número Documento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
-        comboContaBancariaEstorno.setFont(new java.awt.Font("Arial", 0, 10));
+        comboContaBancariaEstorno.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         comboContaBancariaEstorno.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboContaBancariaEstornoItemStateChanged(evt);
             }
         });
 
-        comboChequeEstorno.setFont(new java.awt.Font("Arial", 0, 10));
+        comboChequeEstorno.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         comboChequeEstorno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboChequeEstornoActionPerformed(evt);
@@ -548,14 +549,14 @@ public class CompensadorCheque extends FinanceInternalFrame implements IRepopula
         });
 
         labelDescricaoEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelDescricaoEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelDescricaoEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelDescricaoEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelDescricaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descrição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelDescricaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descrição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         labelObservacaoEstorno.setBackground(new java.awt.Color(222, 218, 210));
-        labelObservacaoEstorno.setFont(new java.awt.Font("Arial", 1, 10));
+        labelObservacaoEstorno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         labelObservacaoEstorno.setForeground(new java.awt.Color(0, 153, 153));
-        labelObservacaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Observação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        labelObservacaoEstorno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Observação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
 
         javax.swing.GroupLayout abaCompensarCheque1Layout = new javax.swing.GroupLayout(abaCompensarCheque1);
         abaCompensarCheque1.setLayout(abaCompensarCheque1Layout);
@@ -950,6 +951,7 @@ private void botaoCompensarActionPerformed(java.awt.event.ActionEvent evt) {//GE
     if (comboChequeCompensa.getSelectedItem() != null && ((ContaBancariaChequeModel) comboChequeCompensa.getSelectedItem()).getPk() != null) {
 
         ContaBancariaChequeModel chequeEmitido = ((ContaBancariaChequeModel) comboChequeCompensa.getSelectedItem());
+        
 
         ContaBancariaDebitoModel chequeCompensado = new ContaBancariaDebitoModel();
 
@@ -973,12 +975,26 @@ private void botaoCompensarActionPerformed(java.awt.event.ActionEvent evt) {//GE
 
             if (validaCampos()) {
 
-                chequeEmitido.setContaBancaria(((ContaBancariaModel) comboContaBancariaCompensa.getSelectedItem()));
-
+               // chequeEmitido.setContaBancaria(((ContaBancariaModel) comboContaBancariaCompensa.getSelectedItem())); 18/06
+/*
                 chequeEmitido.setPk(new PKModel());
                 chequeEmitido.getPk().setOrganizacao(organizacaoModel);
-                chequeEmitido.getPk().setId(((ContaBancariaChequeModel) comboChequeCompensa.getSelectedItem()).getPk().getId());
+                chequeEmitido.getPk().setId(((ContaBancariaChequeModel) comboChequeCompensa.getSelectedItem()).getPk().getId());                
+                */
                 chequeEmitido = contaBancariaChequeBO.consultarPorTemplate(chequeEmitido);
+                
+                chequeEmitido.getPk().getId();
+                chequeEmitido.getContaBancaria().getConta();
+                chequeEmitido.getValor();
+                
+                
+                if(chequeEmitido == null ){
+                    
+                    exibeMensagemAviso("Cheque não encontrado.", null);
+                    
+                    
+                    return;
+                }
 
                 chequeEmitido.setObservacao(jTObservacaoCompensa.getText());
 
@@ -1016,16 +1032,16 @@ private void botaoCompensarActionPerformed(java.awt.event.ActionEvent evt) {//GE
 
                         chequeCompensado.setTituloPagar(tituloPago);
 
-                        chequeCompensado.setDescricao("CH Nº " + chequeEmitido.getNumeroCheque() + " " + tituloPago.getDescricao());
+                        chequeCompensado.setDescricao("CTA Nº " + chequeEmitido.getContaBancaria().getConta()  +  " CH Nº " + chequeEmitido.getNumeroCheque() + " " + tituloPago.getDescricao());
 
                     } else {
                         chequeCompensado.setTituloPagar(null);
                     }
 
-                    chequeCompensado.setContaBancaria(((ContaBancariaModel) comboContaBancariaCompensa.getSelectedItem()));
+                    //chequeCompensado.setContaBancaria(((ContaBancariaModel) comboContaBancariaCompensa.getSelectedItem())); 18/06
+                    chequeCompensado.setContaBancaria(chequeEmitido.getContaBancaria());                    
                     chequeCompensado.setDataMovimento(jFTDataChequeCompensado.getDate());
                     chequeCompensado.setDataRegistro(Controller.getDataServidorBD());
-
                     chequeCompensado.setTipoLancamento("D");
                     chequeCompensado.setValor(PempecParse.stringToDouble(labelValorCheque.getText()));
                     chequeCompensado.setUsuario(usuarioModel);
@@ -1309,6 +1325,7 @@ private void comboChequeCompensaActionPerformed(java.awt.event.ActionEvent evt) 
 
     }
 }//GEN-LAST:event_comboChequeCompensaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel abaCompensarCheque;
     private javax.swing.JPanel abaCompensarCheque1;
