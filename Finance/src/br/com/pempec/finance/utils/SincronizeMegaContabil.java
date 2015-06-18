@@ -72,8 +72,6 @@ public class SincronizeMegaContabil {
             builder.append(" FROM CPLANOEMPRESA WHERE LEI11638 = -1 AND GRAU = 5  AND EMPRESA = 1");
 
             //TEM QUE SER EMPRESA 1 PORQUE O MEGA DEIXA COLOCAR VARIAS EMPRESAS E A MESMA CONTA E CODREDUZ
-
-
             PreparedStatement statement = this.getConnection().prepareStatement(builder.toString());
 
             ResultSet resultSet = statement.executeQuery();
@@ -101,6 +99,37 @@ public class SincronizeMegaContabil {
 
             }
 
+        } catch (SQLException ex) {
+            throw new SystemException(ex.getMessage());
+        }
+
+        return retorno;
+
+    }
+
+    
+    public Integer getQtdRegistros() throws SystemException {
+
+        Integer retorno = 0;
+
+        try {
+
+            StringBuilder builder = new StringBuilder();
+
+            builder.append(" SELECT COUNT(*) ");
+            builder.append(" FROM CPLANOEMPRESA WHERE LEI11638 = -1 AND GRAU = 5  AND EMPRESA = 1");
+
+            PreparedStatement statement = this.getConnection().prepareStatement(builder.toString());
+
+            ResultSet resultSet = statement.executeQuery();
+
+            retorno = 0;
+
+            while (resultSet.next()) {
+
+                retorno = resultSet.getInt(1);
+
+            }
 
         } catch (SQLException ex) {
             throw new SystemException(ex.getMessage());
@@ -109,4 +138,5 @@ public class SincronizeMegaContabil {
         return retorno;
 
     }
+
 }

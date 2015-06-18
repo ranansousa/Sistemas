@@ -58,4 +58,11 @@ public class ContaContabilBO {
     public void sincronizeMegaContabil(Collection<ContaContabilModel> collContaContabilInsert, Collection<ContaContabilModel> collContaContabilUpdate) throws SystemException, ApplicationException {
         DAOFactory.getInstance().getContaContabilDAO().sincronizeMegaContabil(collContaContabilInsert, collContaContabilUpdate);
     }
+        
+    public Integer getQtdRegistros(OrganizacaoModel model)
+            throws SystemException, ApplicationException {
+        return DAOFactory.getInstance().getContaContabilDAO().getQtdRegistros(model);
+    }
+        
+    
 }

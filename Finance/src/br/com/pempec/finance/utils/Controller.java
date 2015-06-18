@@ -55,6 +55,7 @@ public final class Controller {
     private static String ipServidorBD;
     private static String nameServidorBD;
     private static Integer qtdMovimentosHoje;
+    
     //Armazendo na Cache.
     private static Collection<GrupoUsuarioModel> collGrupoUsuario;
     private static Collection<UsuarioActionModel> collUsuarioAction;

@@ -1,6 +1,5 @@
 package br.com.pempec.finance.hibernate;
 
-import br.com.pempec.finance.exceptions.ApplicationException;
 import br.com.pempec.finance.utils.PempecParse;
 import br.com.pempec.finance.utils.PrintScreen;
 import br.com.pempec.finance.utils.ResourcePropertiesLocator;
@@ -8,12 +7,9 @@ import br.com.pempec.finance.view.TelaErroBancoDados;
 import br.com.pempec.finance.view.TelaPrincipal;
 import java.awt.Font;
 import java.io.File;
-import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.SwingUtilities;
 import org.firebirdsql.gds.GDSException;
-import org.firebirdsql.jdbc.FBSQLException;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

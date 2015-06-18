@@ -7,6 +7,8 @@ import br.com.pempec.finance.hibernate.HibernateUtil;
 import br.com.pempec.finance.models.ContaContabilModel;
 import br.com.pempec.finance.models.MovimentoDiarioModel;
 import br.com.pempec.finance.models.OrganizacaoModel;
+import br.com.pempec.finance.models.TituloPagarModel;
+import br.com.pempec.finance.utils.Controller;
 import br.com.pempec.finance.utils.PempecKeyGenerator;
 import br.com.pempec.finance.utils.Repopulador;
 import java.util.Collection;
@@ -197,4 +199,30 @@ public class ContaContabilDAO implements ContaContabilDAOIf {
         }
 
     }
+
+
+
+    public Integer getQtdRegistros(OrganizacaoModel model) throws SystemException {
+
+        Integer retorno = 0;
+            
+            try {
+
+            Query query = HibernateUtil.getCurrentSession().createSQLQuery("SELECT COUNT(*) FROM CONTA_CONTABIL WHERE GRAU = 5 AND ID_ORGANIZACAO =:org " );
+             query.setParameter("org", model.getId());  
+                        
+            retorno = (Integer) query.uniqueResult();
+            
+
+        } catch (Exception e) {
+            throw new SystemException(e);
+        }
+            
+            
+
+        return retorno;
+
+    }
+
+
 }

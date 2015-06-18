@@ -33,4 +33,7 @@ public interface ContaContabilDAOIf {
             throws SystemException;
 
     public void sincronizeMegaContabil(Collection<ContaContabilModel> collContaContabilInsert, Collection<ContaContabilModel> collContaContabilUpdate) throws SystemException;
+
+    public Integer getQtdRegistros(OrganizacaoModel model) throws SystemException;
+
 }
